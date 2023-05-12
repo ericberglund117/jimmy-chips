@@ -1,5 +1,7 @@
 import './App.css';
-import Homepage from './components/homepage/homepage';
+import { Routes, Route } from "react-router-dom"
+import  Homepage  from './components/homepage/homepage'
+
 
 function App() {
   return (
@@ -7,9 +9,9 @@ function App() {
       <section className="navContainer">
 
       </section>
-      <section className="homepageContainer">
-        <Homepage />
-      </section>
+      <Routes>
+          <Route path="/" element= { <Homepage /> } />
+      </Routes>
     </div>
   );
 }
