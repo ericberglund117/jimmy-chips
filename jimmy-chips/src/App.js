@@ -2,7 +2,8 @@ import './App.css';
 import { Routes, Route } from "react-router-dom"
 import  Homepage  from './components/homepage/homepage'
 import Setup from './pages/setup/setup';
-
+import NineHole from './pages/nineHole/nineHole';
+import EighteenHole from './pages/eighteenHole/eighteenHole';
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
       <Routes>
           <Route path="/" element= { <Homepage /> } />
           <Route path="/setup" element= { <Setup /> } />
+          <Route path='/nine-holes' element= { <NineHole /> } />
+          <Route path='/eighteen-holes' element= { <EighteenHole /> } />
       </Routes>
     </div>
   );
