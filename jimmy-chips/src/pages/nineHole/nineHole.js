@@ -5,12 +5,13 @@ import ScoreCard from '../../components/scoreCard/scoreCard';
 
 const NineHole = () => {
     const [currentPlayerNames, setCurrentPlayerNames] = useState([''])
+    const [currentPlayerChips, setCurrentPlayerChips] = useState([''])
+    const [currentPlayerScore, setCurrentPlayerScore] = useState([''])
     const navigate = useNavigate()
     const location = useLocation()
     const playerData = location.state
-    
+    const nineHolesCount = [1,2,3,4,5,6,7,8,9]
     useEffect(() => {
-        playerData.shift()
         setCurrentPlayerNames(playerData)
     },[playerData])
 
@@ -32,6 +33,9 @@ const NineHole = () => {
         <button onClick={navigateBack}>Back</button>
         <ScoreCard 
             currentPlayers={currentPlayerNames}
+            nineHolesCount={nineHolesCount}
+            currentChips={currentPlayerChips}
+            currentScore={currentPlayerScore}
         />
     </div>
   );
