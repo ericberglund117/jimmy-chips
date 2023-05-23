@@ -10,14 +10,10 @@ const ScoreCard = (props) => {
     console.log("cp score", currentPlayers)
     console.log("cp holes", nineHolesCount)
 
-    // const displayScorecard = () => {
-    // return currentPlayers.map((player, index) => {
-    //     <p className='currentPlayer' key={index}>{player}</p>
-    //     nineHolesCount.map((hole, index) => {
-    //         <div className='hole' key={index}>{hole}</div>
-    //     })
-    //     })
-    // }
+    const assignChips = () => {
+
+    }
+
   return (
     <div className="scoreCardContainer">
         <p>Scorecard</p>
@@ -29,12 +25,12 @@ const ScoreCard = (props) => {
                         <p className='playerName' key={playIndex + 20}>{player}</p>
                         <div className='currentHole' key={index}>{hole}</div>
                         <input type='text' className='scoreInput'></input>
+                        <button className='addChips' onClick={assignChips}>Assign Chips</button>
                     </div> 
                     )  
             })
             })}
         </form>
-        {/* <button className='chipsAssignment' onClick={assignChips}>Assign Chips</button> */}
     </div>
   );
 }
