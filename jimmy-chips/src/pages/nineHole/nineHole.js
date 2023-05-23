@@ -1,22 +1,38 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './nineHole.css';
+import ScoreCard from '../../components/scoreCard/scoreCard';
 
 const NineHole = () => {
-    // const [playerNames, setPlayerNames] = useState([''])
-
+    const [currentPlayerNames, setCurrentPlayerNames] = useState([''])
+    const navigate = useNavigate()
     const location = useLocation()
-    const data = location.state
-    console.log(data)
+    const playerData = location.state
+    
+    useEffect(() => {
+        playerData.shift()
+        setCurrentPlayerNames(playerData)
+    },[playerData])
 
    const consolePlayers = () => {
+    
+    }
+
+    const navigateBack = () => {
+        //need to useNavigate to send data back to set up
+         //navigate("/setup", {state:})
+        navigate('/setup')
     }
 
   return (
     <div className="NineHole">
-        <p>NineHole</p>
+        <p>Nine Holes</p>
+        {currentPlayerNames.map((player, index) => <p key={index}>{player}</p>)}
         <button onClick={consolePlayers}>players</button>
-        {}
+        <button onClick={navigateBack}>Back</button>
+        <ScoreCard 
+            currentPlayers={currentPlayerNames}
+        />
     </div>
   );
 }
