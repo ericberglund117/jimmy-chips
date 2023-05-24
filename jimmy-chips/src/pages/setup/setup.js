@@ -5,10 +5,9 @@ import './setup.css';
 import NineHole from '../nineHole/nineHole';
 
 const Setup = () => {
-    const allChips = [""]
     const [value, setValue] = useState('')
     const [playerNames, setPlayerNames] = useState([''])
-    const [playerChips, setPlayerChips] = useState([''])
+    // const [playerChips, setPlayerChips] = useState([''])
     const navigate = useNavigate()
 
     const handleSubmit = (e) => {

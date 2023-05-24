@@ -5,13 +5,16 @@ import ScoreCard from '../../components/scoreCard/scoreCard';
 
 const NineHole = () => {
     const [currentPlayerNames, setCurrentPlayerNames] = useState([''])
-    const [currentPlayerChips, setCurrentPlayerChips] = useState([''])
+    const [currentPlayerChips, setCurrentPlayerChips] = useState(['chip'])
     const [currentPlayerScore, setCurrentPlayerScore] = useState([''])
     const navigate = useNavigate()
     const location = useLocation()
     const playerData = location.state
     const nineHolesCount = [1,2,3,4,5,6,7,8,9]
     useEffect(() => {
+        playerData.forEach(player => {
+            return player === '' ? playerData.splice(0, 1) : player
+        })
         setCurrentPlayerNames(playerData)
     },[playerData])
 
@@ -29,7 +32,6 @@ const NineHole = () => {
     <div className="NineHole">
         <p>Nine Holes</p>
         {currentPlayerNames.map((player, index) => <p key={index}>{player}</p>)}
-        <button onClick={consolePlayers}>players</button>
         <button onClick={navigateBack}>Back</button>
         <ScoreCard 
             currentPlayers={currentPlayerNames}

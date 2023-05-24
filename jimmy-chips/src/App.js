@@ -4,6 +4,7 @@ import  Homepage  from './components/homepage/homepage'
 import Setup from './pages/setup/setup';
 import NineHole from './pages/nineHole/nineHole';
 import EighteenHole from './pages/eighteenHole/eighteenHole';
+import ChipsAssignment from './pages/chipsAssignment/chipsAssignment';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/setup" element= { <Setup /> } />
           <Route path='/nine-holes' element= { <NineHole /> } />
           <Route path='/eighteen-holes' element= { <EighteenHole /> } />
+          <Route path='/assign-chips/:id' element={ <ChipsAssignment /> } />
       </Routes>
     </div>
   );
