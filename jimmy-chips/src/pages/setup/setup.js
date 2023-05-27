@@ -49,7 +49,7 @@ const Setup = () => {
         {displayPlayers}
      </div>
      <div className='buttonsContainer'>
-        <Link to="/nine-holes" state={ playerNames } className='link'>
+        <Link to="/nine-holes" state={{ playerKey: playerNames }} className='link'>
             <button className='nineHole' onClick={playNine}>Play Nine Holes</button>
         </Link>
         <button className='eighteenHole' onClick={playEighteen}>Play Eighteen Holes</button>

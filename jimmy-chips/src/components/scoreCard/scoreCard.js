@@ -5,51 +5,40 @@ import './scoreCard.css';
 
 const ScoreCard = (props) => {
     let currentPlayers = props.currentPlayers
-    let currentChips = props.currentChips
+    let currentChipsCallback = props.currentChips
     let currentScore = props.currentScore
     let nineHolesCount = props.nineHolesCount
-    const playerChips = [
-        'Par',
-        'Sandy Par',
-        'Out of Bounds',
-        'Water',
-        'Tree',
-        'Birdie',
-        'Gravedigger',
-        'One Putt',
-        'Beer Chip',
-        'Snowman'
-    ]
+    const { state } = useLocation()
     const navigate = useNavigate()
     console.log("cp score", currentPlayers)
     console.log("cp holes", nineHolesCount)
+    console.log(currentChipsCallback)
+    console.log("state", state)
+    const [displayCurrentPlayers, setDisplayCurrentPlayers] = useState([''])
 
-    const assignChips = () => {
+    const navigateToChips = (e) => {
+        e.preventDefault()
         navigate('/assign-chips/:id')
-        // return (
-        //     <ChipsAssignment 
-        //         currentChips={currentChips}
-        //         allChips={playerChips}
-        //     />
-        // )
     }
+    
+   useEffect(() => {
+        setDisplayCurrentPlayers(currentPlayers)
+    },[currentPlayers])
 
-  return (
+    return (
     <div className="scoreCardContainer">
         <p>Scorecard</p>
         <form>
-            {currentPlayers.map((player, playIndex) => {
+            {displayCurrentPlayers.map((player, playIndex) => {
                 return nineHolesCount.map((hole, index) => {
                     return(
                     <div className='scoreContainer'>
                         <p className='playerName' key={playIndex + 20}>{player}</p>
                         <div className='currentHole' key={index}>{hole}</div>
                         <input type='text' className='scoreInput'></input>
-                        <Link to={{ 
-                             pathname: `/assign-chips/${player}`,
-                             state: { playerChips, currentChips }
-                             }}>
-                            <button className='addChips' onClick={assignChips}>Assign Chips</button>
+                        <Link to={`/assign-chips/${player}`}
+                             >
+                            <button className='addChips' onMouseDown={(e) => navigateToChips}>Chips</button>
                         </Link>
                     </div> 
                     )  
