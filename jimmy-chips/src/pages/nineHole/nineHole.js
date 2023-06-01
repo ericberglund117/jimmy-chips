@@ -4,27 +4,15 @@ import './nineHole.css';
 import ScoreCard from '../../components/scoreCard/scoreCard';
 
 const NineHole = () => {
-    const [currentPlayerNames, setCurrentPlayerNames] = useState([''])
+    const [currentPlayerNames, setCurrentPlayerNames] = useState(() => {
+        const savedNames = localStorage.getItem('playerNames')
+        const initialPlayerNamesValue = JSON.parse(savedNames)
+        return initialPlayerNamesValue || ['']
+    })
     const [currentPlayerChips, setCurrentPlayerChips] = useState([''])
     const [currentPlayerScore, setCurrentPlayerScore] = useState([''])
     const navigate = useNavigate()
-    const location = useLocation()
-    const { state } = location
-    //const playerChipsState = useMemo(() => state.playerChips, [state.playerChips])
-    //const playerState =  useMemo(() => state.playerKey, [state.playerKey])
-    //const playerChipsState = state.playerChips
-    const playerState = state.playerKey
     const nineHolesCount = [1,2,3,4,5,6,7,8,9]
-
-    console.log('pstate', playerState)
-    //console.log("chips", playerChipsState)
-    useEffect(() => {
-
-        playerState.forEach(player => {
-            return player === '' ? playerState.splice(0, 1) : player
-        })
-        setCurrentPlayerNames(playerState)
-    },[playerState])
 
    const playerChipsCallback = (playerchips) => {
         setCurrentPlayerChips(playerchips)

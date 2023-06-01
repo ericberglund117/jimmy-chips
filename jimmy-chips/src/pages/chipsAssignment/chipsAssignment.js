@@ -20,7 +20,6 @@ const ChipsAssignment = () => {
     let playerAssignedChips = { [playerNameForChips[2]]: []}
 
     const setChipValue = (selectedChip) => {
-        //console.log(currentChipsCallback)
         console.log(selectedChip)
        const check = allChips.filter(chip => chip === selectedChip)
        const playerAssignedChipsArr = playerAssignedChips[playerNameForChips[2]]

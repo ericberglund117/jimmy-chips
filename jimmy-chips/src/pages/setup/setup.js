@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './setup.css';
 import NineHole from '../nineHole/nineHole';
@@ -18,6 +18,16 @@ const Setup = () => {
             setPlayerNames([...playerNames, value])
         }
     }
+
+    useEffect(() => {
+        if (playerNames.length > 1) {
+            playerNames.forEach(player => {
+                return player === '' ? playerNames.splice(0, 1) : player
+            })
+            localStorage.setItem("playerNames", JSON.stringify(playerNames))
+        }
+        console.log("use", playerNames)
+    }, [playerNames])
 
     const displayPlayers = playerNames.length > 0 ? playerNames.map((player, index) => <p className='addedPlayer' key={index}>{player}</p>) : null
 
@@ -49,7 +59,7 @@ const Setup = () => {
         {displayPlayers}
      </div>
      <div className='buttonsContainer'>
-        <Link to="/nine-holes" state={{ playerKey: playerNames }} className='link'>
+        <Link to="/nine-holes" className='link'>
             <button className='nineHole' onClick={playNine}>Play Nine Holes</button>
         </Link>
         <button className='eighteenHole' onClick={playEighteen}>Play Eighteen Holes</button>
