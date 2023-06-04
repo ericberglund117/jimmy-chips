@@ -13,7 +13,7 @@ const ScoreCard = (props) => {
     console.log("cp score", currentPlayers)
     console.log("cp holes", nineHolesCount)
     console.log(currentChipsCallback)
-    console.log("state", state)
+    console.log("state", state.playerChips)
     const [displayCurrentPlayers, setDisplayCurrentPlayers] = useState([''])
 
     const navigateToChips = (e) => {
@@ -40,6 +40,7 @@ const ScoreCard = (props) => {
                              >
                             <button className='addChips' onMouseDown={(e) => navigateToChips}>Chips</button>
                         </Link>
+                        {Object.keys(state.playerChips).length > 0 ? state.playerChips[player].map(chip => <div>{chip}</div>) : null}
                     </div> 
                     )  
             })
