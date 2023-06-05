@@ -10,8 +10,6 @@ const NineHole = () => {
     // const [currentPlayerScore, setCurrentPlayerScore] = useState([''])
     const navigate = useNavigate()
     const nineHolesCount = [1,2,3,4,5,6,7,8,9]
-    console.log('nine hole')
-    console.log(currentPlayers)
     
         useEffect(() => {
             const [...currentStoredPlayers] = getStorageValue('allPlayers')
@@ -30,6 +28,7 @@ const NineHole = () => {
         console.log(correctPlayer)
         console.log(currentPlayers)
         setCurrentPlayers([...currentPlayers])
+        localStorage.setItem('allPlayers', JSON.stringify(currentPlayers))
     }
         
 
