@@ -6,36 +6,45 @@ import NineHole from '../nineHole/nineHole';
 
 const Setup = () => {
     const [value, setValue] = useState('')
-    const [playerNames, setPlayerNames] = useState([''])
-    // const [playerChips, setPlayerChips] = useState([''])
+    const [playerObject, setPlayerObject] = useState({})
+    const [allPlayers, setAllPlayers] = useState([])
     const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (playerNames.length === 0) {
-            setPlayerNames(value)
+        if (value === '') {
+           return alert("Must Enter a Player Name")
+        }
+        const updatedPlayerName = {
+                name: value,
+                chips: [],
+                score: [],
+                full: false
+        }
+        if (Object.keys(playerObject).length === 0) {
+            setPlayerObject(updatedPlayerName)
+            setAllPlayers([updatedPlayerName])
         } else {
-            setPlayerNames([...playerNames, value])
+            const updatedPlayers = [ ...allPlayers, updatedPlayerName]
+            setAllPlayers(updatedPlayers)
         }
     }
 
     useEffect(() => {
-        if (playerNames.length > 1) {
-            playerNames.forEach(player => {
-                return player === '' ? playerNames.splice(0, 1) : player
-            })
-            localStorage.setItem("playerNames", JSON.stringify(playerNames))
+        if (allPlayers.length > 0) {
+            localStorage.setItem("allPlayers", JSON.stringify(allPlayers))
         }
-        console.log("use", playerNames)
-    }, [playerNames])
+        console.log("use", allPlayers)
+    }, [allPlayers])
 
-    const displayPlayers = playerNames.length > 0 ? playerNames.map((player, index) => <p className='addedPlayer' key={index}>{player}</p>) : null
+    const displayPlayers = allPlayers.length > 0 ? allPlayers.map((player, index) => <p className='addedPlayer' key={index}>{player.name}</p>) : null
 
     const playNine = () => {
         navigate("/nine-holes")
     }
 
     const playEighteen = () => {
+        allPlayers.map(player => player.full = true)
         navigate("/eighteen-holes")
     }
 

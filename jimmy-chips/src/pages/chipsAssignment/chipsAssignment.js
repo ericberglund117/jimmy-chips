@@ -1,5 +1,6 @@
 import { Link, Navigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useLocalStorage, getStorageValue} from '../../useLocalStorage';
 import './chipsAssignment.css';
 
 const ChipsAssignment = () => { 
@@ -16,19 +17,30 @@ const ChipsAssignment = () => {
         'Beer Chip',
         'Snowman'
     ]
+    const [currentPlayers, setCurrentPlayers] = useState([])
+    //get chips and players from local storage so can go back and forth 
     const playerNameForChips = pathname.split("/")
-    let playerAssignedChips = { [playerNameForChips[2]]: []}
+
+    useEffect(() => {
+        const [...currentStoredPlayers] = getStorageValue('allPlayers')
+        setCurrentPlayers([...currentStoredPlayers])
+    }, [])
 
     const setChipValue = (selectedChip) => {
-        console.log(selectedChip)
        const check = allChips.filter(chip => chip === selectedChip)
-       const playerAssignedChipsArr = playerAssignedChips[playerNameForChips[2]]
-       playerAssignedChipsArr.push(check)
-       const flattenedplayerAssignedChips = flatten(playerAssignedChipsArr) 
-       const uniqueplayerAssignedChips = [...new Set(flattenedplayerAssignedChips)]   
-       playerAssignedChips[playerNameForChips[2]] = uniqueplayerAssignedChips
-       console.log(playerAssignedChips)
-       return playerAssignedChips
+       const correctPlayer = currentPlayers.find(player => player.name === playerNameForChips[2])
+       if (correctPlayer.chips.length === 0) {
+            correctPlayer.chips.push(check)
+       } else {
+            const updatedChips = flatten([...correctPlayer.chips, check])
+            correctPlayer.chips = [...new Set(updatedChips)]
+       }
+       const updatedChipsCurrentPlayers = currentPlayers
+       updatePlayersAfterChips(updatedChipsCurrentPlayers)
+    }
+
+    const updatePlayersAfterChips = (updatedPlayers) => {
+        localStorage.setItem("allPlayers", JSON.stringify(updatedPlayers))
     }
 
     function flatten(arr) {
@@ -57,7 +69,6 @@ const ChipsAssignment = () => {
         <Link to={{
             pathname:`/nine-holes`
             }}
-            state= {{ playerChips: playerAssignedChips }} 
             >
             <button className='navBack' onMouseDown={(e) => navigateBack}>Back</button>
          </Link>

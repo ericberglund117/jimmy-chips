@@ -1,21 +1,25 @@
 import { useState, useEffect } from "react";
 
-function getStorageValue(key, defaultValue) {
+export const getStorageValue = (defaultValue) => {
   // getting stored value
-  const saved = localStorage.getItem(key);
-  const initial = JSON.parse(saved);
-  return initial || defaultValue;
+  const allPlayersKey = localStorage.getItem(defaultValue)
+  const initial = JSON.parse(allPlayersKey);
+  console.log('store', initial)
+  return initial 
 }
 
-export const useLocalStorage = (key, defaultValue) => {
+export const useLocalStorage = (defaultValue, updatedValue) => {
   const [value, setValue] = useState(() => {
-    return getStorageValue(key, defaultValue);
+    return getStorageValue(defaultValue);
   });
+  if(updatedValue === "") {
+    updatedValue = defaultValue
+}
 
   useEffect(() => {
     // storing input name
-    localStorage.setItem(key, JSON.stringify(value));
-  }, [key, value]);
+    localStorage.setItem(updatedValue, JSON.stringify(value));
+  }, [updatedValue, value]);
 
   return [value, setValue];
 };
