@@ -52,7 +52,6 @@ const EighteenHole = () => {
         <button className='allDoneButton' onClick={finishRound}>Finish Round</button>
         <ScoreCard 
             currentPlayers={currentPlayers}
-            eighteenHolesCount={eighteenHolesCount}
         />
     </div>
   );

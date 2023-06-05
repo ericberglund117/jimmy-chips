@@ -18,9 +18,9 @@ const ChipsAssignment = () => {
         'Snowman'
     ]
     const [currentPlayers, setCurrentPlayers] = useState([])
+    let pathCheck
 
     //change button or give some sort of visual confirmation that chip as been assigned
-
 
     const playerNameForChips = pathname.split("/")
 
@@ -55,7 +55,12 @@ const ChipsAssignment = () => {
 
     const navigateBack = (e) => {
         e.preventDefault()
-        Navigate('/nine-holes')
+        currentPlayers.forEach(player => {
+            player.full === true ? pathCheck = true : pathCheck = false;
+        })
+        pathCheck ?
+        Navigate('/nine-holes') :
+        Navigate('/eighteen-holes')
     }
 
   return (
@@ -69,9 +74,7 @@ const ChipsAssignment = () => {
                 </section>
             )
         })}
-        <Link to={{
-            pathname:`/nine-holes`
-            }}
+        <Link to={pathCheck ? '/nine-holes' : '/eighteen-holes'}
             >
             <button className='navBack' onMouseDown={(e) => navigateBack}>Back</button>
          </Link>
