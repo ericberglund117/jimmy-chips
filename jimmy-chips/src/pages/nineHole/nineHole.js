@@ -26,6 +26,11 @@ const NineHole = () => {
         setCurrentPlayers([...currentPlayers])
         localStorage.setItem('allPlayers', JSON.stringify(currentPlayers))
     }
+
+    const finishRound = () => {
+        const endPlayers = getStorageValue('allPlayers')
+        console.log(endPlayers)
+    }
         
 
   return (
@@ -42,6 +47,7 @@ const NineHole = () => {
         })
         }
         <button onClick={navigateBack}>Back</button>
+        <button className='allDoneButton' onClick={finishRound}>Finish Round</button>
         <ScoreCard 
             currentPlayers={currentPlayers}
             nineHolesCount={nineHolesCount}
