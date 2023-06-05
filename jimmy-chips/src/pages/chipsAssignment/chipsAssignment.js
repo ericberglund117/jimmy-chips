@@ -18,7 +18,10 @@ const ChipsAssignment = () => {
         'Snowman'
     ]
     const [currentPlayers, setCurrentPlayers] = useState([])
-    //get chips and players from local storage so can go back and forth 
+
+    //change button or give some sort of visual confirmation that chip as been assigned
+
+
     const playerNameForChips = pathname.split("/")
 
     useEffect(() => {

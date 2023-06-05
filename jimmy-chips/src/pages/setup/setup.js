@@ -18,7 +18,7 @@ const Setup = () => {
         const updatedPlayerName = {
                 name: value,
                 chips: [],
-                score: [],
+                score: {},
                 full: false
         }
         if (Object.keys(playerObject).length === 0) {

@@ -6,8 +6,6 @@ import { useLocalStorage, getStorageValue} from '../../useLocalStorage';
 
 const NineHole = () => {
     const [currentPlayers, setCurrentPlayers] = useState([])
-    // const [currentPlayerChips, setCurrentPlayerChips] = useState([''])
-    // const [currentPlayerScore, setCurrentPlayerScore] = useState([''])
     const navigate = useNavigate()
     const nineHolesCount = [1,2,3,4,5,6,7,8,9]
     
@@ -25,8 +23,6 @@ const NineHole = () => {
         const correctPlayer = currentPlayers.find(player => player.name === playerName)
         const chipIndex = correctPlayer.chips.indexOf(chip)
         correctPlayer.chips.splice(chipIndex, 1)
-        console.log(correctPlayer)
-        console.log(currentPlayers)
         setCurrentPlayers([...currentPlayers])
         localStorage.setItem('allPlayers', JSON.stringify(currentPlayers))
     }
