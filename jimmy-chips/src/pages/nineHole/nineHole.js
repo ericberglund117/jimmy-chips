@@ -16,12 +16,21 @@ const NineHole = () => {
         useEffect(() => {
             const [...currentStoredPlayers] = getStorageValue('allPlayers')
             setCurrentPlayers([...currentStoredPlayers])
+
         }, [])
 
     const navigateBack = () => {
         navigate('/setup')
     }
 
+    const removeChipsButton = (chip, playerName) => {
+        const correctPlayer = currentPlayers.find(player => player.name === playerName)
+        const chipIndex = correctPlayer.chips.indexOf(chip)
+        correctPlayer.chips.splice(chipIndex, 1)
+        console.log(correctPlayer)
+        console.log(currentPlayers)
+        setCurrentPlayers([...currentPlayers])
+    }
         
 
   return (
@@ -31,6 +40,9 @@ const NineHole = () => {
             return <div>
                     <p key={index}>{player.name}</p>
                     <p key={index + 10}>{player.chips}</p>
+                    {player.chips.length > 0 ? player.chips.map((chip, chipIndex) => {
+                    return <button className='removeChip' key= {chipIndex} onClick={() => removeChipsButton(chip, player.name)}>Remove Chip</button>
+                    }) : null }
                     </div>
         })
         }
