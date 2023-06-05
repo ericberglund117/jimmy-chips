@@ -45,6 +45,7 @@ const Setup = () => {
 
     const playEighteen = () => {
         allPlayers.map(player => player.full = true)
+        console.log("18", allPlayers)
         navigate("/eighteen-holes")
     }
 

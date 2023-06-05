@@ -1,19 +1,59 @@
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+
 import './eighteenHole.css';
 
-const EighteenHole = (props) => {
-    const [showInstructions, setShowInstructions] = useState(false);
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import ScoreCard from '../../components/scoreCard/scoreCard';
+import { useLocalStorage, getStorageValue} from '../../useLocalStorage';
+
+const EighteenHole = () => {
+    const [currentPlayers, setCurrentPlayers] = useState([])
     const navigate = useNavigate()
-    const instructions = "Each player begins the round with no chips. The first player that hits a shot that corresponds to the designation on the chip is given that chip. He/she holds on to that chip until someone else hits the same shot. For Example, if player number 1 goes into the sand he/she will hold that chip until another player goes into the sand. He/she then gives the chip to that player. The same holds true for the positive chips. The last one to get a one putt or a birdie is the one that gets that chip. At the beginning of the round, each chip is given a designated dollar value. At the end of the round those players holding the negative chips will pay to each player the designated amount for each chip he or she is holding. Those holding the positive chips will receive the same amount from each of the other players."
+
     
-    const startPlay = () => {
-        navigate("/setup")
+        useEffect(() => {
+            const [...currentStoredPlayers] = getStorageValue('allPlayers')
+            setCurrentPlayers([...currentStoredPlayers])
+
+        }, [])
+
+    const navigateBack = () => {
+        navigate('/setup')
     }
 
+    const removeChipsButton = (chip, playerName) => {
+        const correctPlayer = currentPlayers.find(player => player.name === playerName)
+        const chipIndex = correctPlayer.chips.indexOf(chip)
+        correctPlayer.chips.splice(chipIndex, 1)
+        setCurrentPlayers([...currentPlayers])
+        localStorage.setItem('allPlayers', JSON.stringify(currentPlayers))
+    }
+
+    const finishRound = () => {
+        const endPlayers = getStorageValue('allPlayers')
+        console.log(endPlayers)
+    }
+        
+
   return (
-    <div className="NineHole">
-       <p>EighteenHole</p>
+    <div className="eighteenHole">
+        <p>eighteen Holes</p>
+        {currentPlayers.map((player, index) => {
+            return <div>
+                    <p key={index}>{player.name}</p>
+                    <p key={index + 10}>{player.chips}</p>
+                    {player.chips.length > 0 ? player.chips.map((chip, chipIndex) => {
+                    return <button className='removeChip' key= {chipIndex} onClick={() => removeChipsButton(chip, player.name)}>Remove Chip</button>
+                    }) : null }
+                    </div>
+        })
+        }
+        <button onClick={navigateBack}>Back</button>
+        <button className='allDoneButton' onClick={finishRound}>Finish Round</button>
+        <ScoreCard 
+            currentPlayers={currentPlayers}
+            eighteenHolesCount={eighteenHolesCount}
+        />
     </div>
   );
 }

@@ -7,7 +7,6 @@ import { useLocalStorage, getStorageValue} from '../../useLocalStorage';
 const NineHole = () => {
     const [currentPlayers, setCurrentPlayers] = useState([])
     const navigate = useNavigate()
-    const nineHolesCount = [1,2,3,4,5,6,7,8,9]
     
         useEffect(() => {
             const [...currentStoredPlayers] = getStorageValue('allPlayers')
@@ -50,7 +49,7 @@ const NineHole = () => {
         <button className='allDoneButton' onClick={finishRound}>Finish Round</button>
         <ScoreCard 
             currentPlayers={currentPlayers}
-            nineHolesCount={nineHolesCount}
+            // nineHolesCount={nineHolesCount}
         />
     </div>
   );

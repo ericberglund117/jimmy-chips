@@ -5,9 +5,13 @@ import './scoreCard.css';
 
 const ScoreCard = (props) => {
     let currentPlayers = props.currentPlayers
-    let nineHolesCount = props.nineHolesCount
+    const nineHolesCount = [1,2,3,4,5,6,7,8,9]
+    const eighteenHolesCount = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]
     const [scoreValue, setScoreValue] = useState({})
     const navigate = useNavigate()
+    const { pathname } = useLocation()
+    const holesPath = pathname.split("/")
+    let holesCount = holesPath[1].includes('eighteen') ? eighteenHolesCount : nineHolesCount
 
     const navigateToChips = (e) => {
         e.preventDefault()
@@ -27,7 +31,7 @@ const ScoreCard = (props) => {
         <p>Scorecard</p>
         <div>
             {currentPlayers.map((player, playIndex) => {
-                return nineHolesCount.map((hole, index) => {
+                return holesCount.map((hole, index) => {
                     return(
                     <div className='scoreContainer'>
                         <p className='playerName' key={playIndex + 10}>{player.name}</p>
