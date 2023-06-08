@@ -5,6 +5,7 @@ import Setup from './pages/setup/setup';
 import NineHole from './pages/nineHole/nineHole';
 import EighteenHole from './pages/eighteenHole/eighteenHole';
 import ChipsAssignment from './pages/chipsAssignment/chipsAssignment';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

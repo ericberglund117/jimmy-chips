@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import './homepage.css';
+import './homepage.scss';
 
 const Homepage = () => {
     const [showInstructions, setShowInstructions] = useState(false);
