@@ -33,18 +33,26 @@ const EighteenHole = () => {
         const endPlayers = getStorageValue('allPlayers')
         console.log(endPlayers)
     }
-        
+
+    // const currentScoreKeeper = () => {
+    //    return currentPlayers.map(player => {
+    //         let scoreKeys = Object.keys(player.score)
+    //         console.log(scoreKeys)
+    //     })
+    // }
+    // console.log(currentScoreKeeper())
 
   return (
     <div className="eighteenHole">
         <p>eighteen Holes</p>
         {currentPlayers.map((player, index) => {
             return <div>
-                    <p key={index}>{player.name}</p>
-                    <p key={index + 10}>{player.chips}</p>
+                    <p key={player.name}>{player.name}</p>
+                    <p key={index}>{player.chips}</p>
                     {player.chips.length > 0 ? player.chips.map((chip, chipIndex) => {
-                    return <button className='removeChip' key= {chipIndex} onClick={() => removeChipsButton(chip, player.name)}>Remove Chip</button>
+                    return <button className='removeChip' key= {"chips"+ chipIndex} onClick={() => removeChipsButton(chip, player.name)}>Remove Chip</button>
                     }) : null }
+                    {/* {Object.keys(player.score).length > 0 ? } */}
                     </div>
         })
         }

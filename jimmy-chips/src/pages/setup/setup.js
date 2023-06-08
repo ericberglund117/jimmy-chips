@@ -11,15 +11,25 @@ const Setup = () => {
     const navigate = useNavigate()
 
     const handleSubmit = (e) => {
+        let updatedPlayerName
         e.preventDefault();
         if (value === '') {
            return alert("Must Enter a Player Name")
         }
-        const updatedPlayerName = {
-                name: value,
+        if (value === "Kyle" || value === "kyle") {
+            updatedPlayerName = {
+                name: "Mittens",
                 chips: [],
                 score: {},
                 full: false
+        }
+        } else {
+            updatedPlayerName = {
+                    name: value,
+                    chips: [],
+                    score: {},
+                    full: false
+            }
         }
         if (Object.keys(playerObject).length === 0) {
             setPlayerObject(updatedPlayerName)
@@ -28,6 +38,7 @@ const Setup = () => {
             const updatedPlayers = [ ...allPlayers, updatedPlayerName]
             setAllPlayers(updatedPlayers)
         }
+        setValue('')
     }
 
     useEffect(() => {

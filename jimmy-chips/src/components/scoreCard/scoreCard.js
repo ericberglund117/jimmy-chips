@@ -18,7 +18,7 @@ const ScoreCard = (props) => {
         navigate('/assign-chips/:id')
     }
     
-
+// figure out way to display current score after navigating through chips and back to score card. Currently score input is blank after chip assignment
     const updateScore = (e, player) => {
         e.preventDefault()
         const correctPlayer = currentPlayers.find(currPlayer => currPlayer.name === player.name)
@@ -34,8 +34,8 @@ const ScoreCard = (props) => {
                 return holesCount.map((hole, index) => {
                     return(
                     <div className='scoreContainer'>
-                        <p className='playerName' key={playIndex + 10}>{player.name}</p>
-                        <div className='currentHole' key={index}>{hole}</div>
+                        <p className='playerName' key={player.name}>{player.name}</p>
+                        <div className='currentHole' key={"hole" + index}>{hole}</div>
                         <form>
                             <label htmlFor='playerScore'>Score: </label>
                             <input 

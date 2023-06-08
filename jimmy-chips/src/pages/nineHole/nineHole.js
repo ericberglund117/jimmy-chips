@@ -37,10 +37,10 @@ const NineHole = () => {
         <p>Nine Holes</p>
         {currentPlayers.map((player, index) => {
             return <div>
-                    <p key={index}>{player.name}</p>
-                    <p key={index + 10}>{player.chips}</p>
-                    {player.chips.length > 0 ? player.chips.map((chip, chipIndex) => {
-                    return <button className='removeChip' key= {chipIndex} onClick={() => removeChipsButton(chip, player.name)}>Remove Chip</button>
+                    <p key={player.name}>{player.name}</p>
+                    <p key={"pc" + index}>{player.chips}</p>
+                    {player.chips.length > 0 ? player.chips.map((chip) => {
+                    return <button className='removeChip' key= {"chips" + chip} onClick={() => removeChipsButton(chip, player.name)}>Remove Chip</button>
                     }) : null }
                     </div>
         })
@@ -49,7 +49,6 @@ const NineHole = () => {
         <button className='allDoneButton' onClick={finishRound}>Finish Round</button>
         <ScoreCard 
             currentPlayers={currentPlayers}
-            // nineHolesCount={nineHolesCount}
         />
     </div>
   );
