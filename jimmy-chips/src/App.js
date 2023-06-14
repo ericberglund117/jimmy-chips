@@ -5,15 +5,16 @@ import Setup from './pages/setup/setup';
 import NineHole from './pages/nineHole/nineHole';
 import EighteenHole from './pages/eighteenHole/eighteenHole';
 import ChipsAssignment from './pages/chipsAssignment/chipsAssignment';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <div className="App">
-      <h1 className="title">Jimmy Chips</h1>
-      <section className="navContainer">
-        
+      <section className='titleContainer'>
+        <h1 className="title">Jimmy Chips</h1>
       </section>
+      {/* <section className="navContainer">
+        
+      </section> */}
       <Routes>
           <Route path="/" element= { <Homepage /> } />
           <Route path="/setup" element= { <Setup /> } />
