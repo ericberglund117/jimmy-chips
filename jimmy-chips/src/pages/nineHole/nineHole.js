@@ -34,11 +34,11 @@ const NineHole = () => {
 
   return (
     <div className="NineHole">
-        <p>Nine Holes</p>
+        <h2>Nine Holes</h2>
         {currentPlayers.map((player, index) => {
-            return <div>
-                    <p key={player.name}>{player.name}</p>
-                    <p key={"pc" + index}>{player.chips}</p>
+            return <div className='holePlayerInformation'>
+                    <p className='holePlayerName' key={player.name}>{player.name}</p>
+                    <p className='holePlayerChips' key={"pc" + index}>{player.chips}</p>
                     {player.chips.length > 0 ? player.chips.map((chip) => {
                     return <button className='removeChip' key= {"chips" + chip} onClick={() => removeChipsButton(chip, player.name)}>Remove Chip</button>
                     }) : null }

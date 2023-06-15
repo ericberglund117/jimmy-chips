@@ -48,8 +48,6 @@ and (max-width: 400px)  {
     .fillerContainer {
         min-height: 50vh;
         margin-top: 25px;
-        /* background-image: url('../../assets/4402.jpg'); */
-        
     }
 
     .wrapper {

@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './setup.css';
-import NineHole from '../nineHole/nineHole';
+
 
 const Setup = () => {
     const [value, setValue] = useState('')
@@ -48,7 +48,10 @@ const Setup = () => {
         console.log("use", allPlayers)
     }, [allPlayers])
 
-    const displayPlayers = allPlayers.length > 0 ? allPlayers.map((player, index) => <p className='addedPlayer' key={index}>{player.name}</p>) : null
+    const displayPlayers = allPlayers.length > 0 ? allPlayers.map((player, index) => 
+        <div className='addedPlayer' key={index}>
+         <p className='addedPlayerName'>{player.name}</p>
+        </div>) : null
 
     const playNine = () => {
         navigate("/nine-holes")
@@ -81,10 +84,17 @@ const Setup = () => {
      </div>
      <div className='buttonsContainer'>
         <Link to="/nine-holes" className='link'>
-            <button className='nineHole' onClick={playNine}>Play Nine Holes</button>
+            <button className='nineHoleButton' onClick={playNine}>Play Nine Holes</button>
         </Link>
-        <button className='eighteenHole' onClick={playEighteen}>Play Eighteen Holes</button>
+        <button className='eighteenHoleButton' onClick={playEighteen}>Play Eighteen Holes</button>
      </div>
+     <section className='fillerContainer'>
+            <div class="wrapper">
+                <div class="ball"> 
+                    <div class="texture"></div>  
+                </div>
+            </div>
+    </section>
     </div>
   );
 }

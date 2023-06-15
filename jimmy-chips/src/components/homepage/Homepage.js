@@ -23,16 +23,11 @@ const Homepage = () => {
             <button className="playButton" onClick={startPlay}> Play!</button>
         </section>
         <section className='fillerContainer'>
-            <div class="wrapper">
-                <div class="ball"> 
-                    <div class="texture"></div>  
+            <div className="wrapper">
+                <div className="ball"> 
+                    <div className="texture"></div>  
                 </div>
-                {/* <div class="tee">
-                    <div class="top"></div>
-                    <div class="stem"></div>
-                </div> */}
             </div>
-            {/* <img src='jimmy-chips/src/assets/4402.jpg' alt='golf-ball'/> */}
         </section>
     </div>
   );
