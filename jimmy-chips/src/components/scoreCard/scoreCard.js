@@ -12,12 +12,34 @@ const ScoreCard = (props) => {
     const { pathname } = useLocation()
     const holesPath = pathname.split("/")
     let holesCount = holesPath[1].includes('eighteen') ? eighteenHolesCount : nineHolesCount
+    console.log('holesCount', holesCount)
+    const [eighteenCurrentPlayers, setEighteenCurrentPlayers] = useState([])
 
+    // useEffect(() => {
+    //  if(holesCount.length > 10) {
+    //     const [...storedPlayers] = getStorageValue('allPlayers')
+    //     const eighteenStoredPlayers = [...storedPlayers].map(player => {
+    //         player.full = true
+    //         return player
+    //     })
+    //     setEighteenCurrentPlayers([...eighteenStoredPlayers])
+        
+    //  }    
+    // }, [holesCount.length])
+
+    console.log(eighteenCurrentPlayers)
     const navigateToChips = (e) => {
-        e.preventDefault()
+        console.log(holesCount)
+        // e.preventDefault()
+        if (holesCount.length > 10) {
+            setPlayersToEighteen()
+        }
         navigate('/assign-chips/:id')
     }
-    
+    const setPlayersToEighteen = () => {
+        console.log('set players', eighteenCurrentPlayers)
+        localStorage.setItem('allPlayers', JSON.stringify(eighteenCurrentPlayers))
+    }
 // figure out way to display current score after navigating through chips and back to score card. Currently score input is blank after chip assignment
     const updateScore = (e, player) => {
         e.preventDefault()
@@ -27,16 +49,16 @@ const ScoreCard = (props) => {
     }
 
     return (
-    <div className="scoreCardContainer">
-        <p>Scorecard</p>
-        <div>
+    <div className="mainContainer">
+        <h2>Scorecard</h2>
+        <div className='scoreContainer'>
             {currentPlayers.map((player, playIndex) => {
                 return holesCount.map((hole, index) => {
                     return(
-                    <div className='scoreContainer'>
-                        <p className='playerName' key={player.name}>{player.name}</p>
+                    <div className='scoreCardContainer'>
                         <div className='currentHole' key={"hole" + index}>{hole}</div>
-                        <form>
+                        <h3 className='playerName' key={player.name}>{player.name}</h3>
+                        <form className='scoreForm'>
                             <label htmlFor='playerScore'>Score: </label>
                             <input 
                             type='number' 
@@ -47,11 +69,10 @@ const ScoreCard = (props) => {
                                 })
                             }} />
                             <button className='enterScore' onClick={(e) => updateScore(e, player)}>Submit Score</button>
+                            <Link to={`/assign-chips/${player.name}`}>
+                                <button className='addChips' onClick={navigateToChips}>Chips</button>
+                            </Link>
                         </form>
-                        <Link to={`/assign-chips/${player.name}`}
-                             >
-                            <button className='addChips' onMouseDown={(e) => navigateToChips}>Chips</button>
-                        </Link>
                     </div> 
                     )  
             })

@@ -9,7 +9,7 @@ import { useLocalStorage, getStorageValue} from '../../useLocalStorage';
 const EighteenHole = () => {
     const [currentPlayers, setCurrentPlayers] = useState([])
     const navigate = useNavigate()
-
+    console.log("18 start", currentPlayers)
     
         useEffect(() => {
             const [...currentStoredPlayers] = getStorageValue('allPlayers')
@@ -44,7 +44,7 @@ const EighteenHole = () => {
 
   return (
     <div className="eighteenHole">
-        <p>eighteen Holes</p>
+        <h2>eighteen Holes</h2>
         {currentPlayers.map((player, index) => {
             return <div>
                     <p key={player.name}>{player.name}</p>

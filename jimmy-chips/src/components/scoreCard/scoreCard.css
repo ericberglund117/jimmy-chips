@@ -1,0 +1,72 @@
+
+@media only screen 
+and (max-width: 400px) {
+    .scoreCardContainer {
+      /* border: 3px dashed; */
+      display: flex;
+      flex-direction: column;
+      border-color: #283618;
+      background-color: #DDA15E;
+      margin-bottom: 15px;
+    }
+
+    .playerName {
+        margin: 0px;
+    }
+
+    .currentHole {
+        font-family: 'Lora';
+        border: solid #283618;
+        border-radius: 50%;
+        height: 20px;
+        width: 20px;
+        margin: 5px;
+    }
+    
+    .enterScore {
+        background-color: #283618;
+        color: #fefae0 ;
+        font-family: 'Lora';
+        border-radius:10px;
+        box-shadow: 0px 0px 2px 2px rgb(0,0,0);
+        min-height:fit-content;
+        min-width: fit-content;
+        align-self: center;
+        margin: 10px;
+    }
+
+    .addChips {
+        background-color: #283618;
+        color: #fefae0 ;
+        font-family: 'Lora';
+        border-radius:10px;
+        box-shadow: 0px 0px 2px 2px rgb(0,0,0);
+        min-height:fit-content;
+        min-width: fit-content;
+    }
+
+    .scoreForm {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    label {
+        font-family: 'Lora';
+    }
+
+    a{
+        align-self: center;
+        margin: 10px;
+    }
+
+    .scoreInput {
+        align-self: center;
+    }
+
+    .scoreContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+}

@@ -58,8 +58,6 @@ const Setup = () => {
     }
 
     const playEighteen = () => {
-        allPlayers.map(player => player.full = true)
-        console.log("18", allPlayers)
         navigate("/eighteen-holes")
     }
 
@@ -83,9 +81,7 @@ const Setup = () => {
         {displayPlayers}
      </div>
      <div className='buttonsContainer'>
-        <Link to="/nine-holes" className='link'>
-            <button className='nineHoleButton' onClick={playNine}>Play Nine Holes</button>
-        </Link>
+        <button className='nineHoleButton' onClick={playNine}>Play Nine Holes</button>
         <button className='eighteenHoleButton' onClick={playEighteen}>Play Eighteen Holes</button>
      </div>
      <section className='fillerContainer'>

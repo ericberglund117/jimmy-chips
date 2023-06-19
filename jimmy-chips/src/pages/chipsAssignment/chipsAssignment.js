@@ -1,10 +1,11 @@
-import { Link, Navigate, useLocation } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useLocalStorage, getStorageValue} from '../../useLocalStorage';
 import './chipsAssignment.css';
 
 const ChipsAssignment = () => { 
     const { pathname } = useLocation()
+    const navigate = useNavigate()
     const allChips = [
         'Par',
         'Sandy Par',
@@ -18,12 +19,12 @@ const ChipsAssignment = () => {
         'Snowman'
     ]
     const [currentPlayers, setCurrentPlayers] = useState([])
-    let pathCheck = true
+    let pathCheck 
 
     //change button or give some sort of visual confirmation that chip as been assigned
 
     const playerNameForChips = pathname.split("/")
-
+    console.log("chips start", currentPlayers)
     useEffect(() => {
         const [...currentStoredPlayers] = getStorageValue('allPlayers')
         setCurrentPlayers([...currentStoredPlayers])
@@ -39,10 +40,14 @@ const ChipsAssignment = () => {
             correctPlayer.chips = [...new Set(updatedChips)]
        }
        const updatedChipsCurrentPlayers = currentPlayers
+    //    let eighteenUpdatedPlayers = updatedChipsCurrentPlayers.map(player => {
+    //     player.full = true
+    //     return player
        updatePlayersAfterChips(updatedChipsCurrentPlayers)
     }
 
     const updatePlayersAfterChips = (updatedPlayers) => {
+        console.log("upChips", updatedPlayers)
         localStorage.setItem("allPlayers", JSON.stringify(updatedPlayers))
     }
 
@@ -53,32 +58,34 @@ const ChipsAssignment = () => {
       } 
 
 
-    const navigateBack = (e) => {
+    const navigateBack = () => {
         console.log("nav", currentPlayers)
-        e.preventDefault()
         let result = currentPlayers.map(player => {
             player.full === true ? pathCheck = true : pathCheck = false;
             return pathCheck
         })
-        result ?
-        Navigate('/nine-holes') :
-        Navigate('/eighteen-holes')
+        !result[0] ?
+        navigate('/nine-holes') :
+        navigate('/eighteen-holes')
     }
 
   return (
     <div className="scoreCardContainer">
-        <p>Chips</p>
+        <section className='navBackContainer'>
+            <button className='navBack' onClick={navigateBack}>Back</button>
+        </section>
+        <h2>Chips</h2>
         {allChips.map((chip, index) => {
             return (
-                <section>
-                    <p key={index}>{chip}</p>
+                <section className='chipContainer'>
+                    <p className="specificChip" key={index}>{chip}</p>
                     <button className='assignChip' onClick={() => setChipValue(chip)} key={chip}>Assign Chip</button>
                 </section>
             )
         })}
-        <Link to={pathCheck ? '/nine-holes' : '/eighteen-holes'}>
-            <button className='navBack' onClick={(e) => navigateBack}>Back</button>
-         </Link>
+        {/* <Link to={pathCheck ? '/nine-holes' : '/eighteen-holes'}> */}
+            
+         {/* </Link> */}
     </div>
   );
 }

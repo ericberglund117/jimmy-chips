@@ -33,24 +33,34 @@ const NineHole = () => {
         
 
   return (
-    <div className="NineHole">
-        <h2>Nine Holes</h2>
-        {currentPlayers.map((player, index) => {
-            return <div className='holePlayerInformation'>
-                    <p className='holePlayerName' key={player.name}>{player.name}</p>
-                    <p className='holePlayerChips' key={"pc" + index}>{player.chips}</p>
-                    {player.chips.length > 0 ? player.chips.map((chip) => {
-                    return <button className='removeChip' key= {"chips" + chip} onClick={() => removeChipsButton(chip, player.name)}>Remove Chip</button>
-                    }) : null }
-                    </div>
-        })
-        }
-        <button onClick={navigateBack}>Back</button>
-        <button className='allDoneButton' onClick={finishRound}>Finish Round</button>
+    <div>
+        <div className="nineHole">
+            <h2>Nine Holes</h2>
+            <div className='nineHoleContainer'>
+                {currentPlayers.map((player, index) => {
+                    return <div className='holePlayerInformation'>
+                            <p className='holePlayerName' key={player.name}>{player.name}</p>
+                            {player.chips.length > 0 ? player.chips.map((chip) => {
+                            return (
+                              <div className='currentChipsContainer'> 
+                                <p className='holePlayerChips' key={"pc" + index}>{chip}</p>
+                                <button className='removeChip' key= {"chips" + chip} onClick={() => removeChipsButton(chip, player.name)}>Remove Chip</button>
+                              </div>
+                            )
+                            }) : null }
+                            </div>
+                })
+                }
+            </div>
+            <div className='holeButtonContainer'>
+                <button className='back-button' onClick={navigateBack}>Back</button>
+                <button className='allDoneButton' onClick={finishRound}>Finish Round</button>
+            </div>
+        </div>
         <ScoreCard 
             currentPlayers={currentPlayers}
         />
-    </div>
+    </div>    
   );
 }
 
