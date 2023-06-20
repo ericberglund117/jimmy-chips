@@ -30,7 +30,8 @@ and (max-width: 400px) {
     .currentChipsContainer {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
+        padding: 1px;
     }
 
     .holePlayerChips {
@@ -59,6 +60,7 @@ and (max-width: 400px) {
         text-decoration: underline;
         align-self: flex-start;
         width: min-content;
+        margin-right: auto;
     }
 
     .holeButtonContainer {
