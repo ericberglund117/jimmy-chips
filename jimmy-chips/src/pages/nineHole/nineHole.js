@@ -29,6 +29,7 @@ const NineHole = () => {
     const finishRound = () => {
         const endPlayers = getStorageValue('allPlayers')
         console.log(endPlayers)
+        navigate("/finished-round")
     }
         
 

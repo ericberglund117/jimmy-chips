@@ -32,6 +32,7 @@ const EighteenHole = () => {
     const finishRound = () => {
         const endPlayers = getStorageValue('allPlayers')
         console.log(endPlayers)
+        navigate("/finished-round")
     }
 
     // const currentScoreKeeper = () => {
@@ -56,7 +57,7 @@ const EighteenHole = () => {
                     </div>
         })
         }
-        <button onClick={navigateBack}>Back</button>
+        <button className='back-button' onClick={navigateBack}>Back</button>
         <button className='allDoneButton' onClick={finishRound}>Finish Round</button>
         <ScoreCard 
             currentPlayers={currentPlayers}
