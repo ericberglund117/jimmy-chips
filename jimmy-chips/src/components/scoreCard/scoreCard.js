@@ -48,6 +48,11 @@ const ScoreCard = (props) => {
         localStorage.setItem('allPlayers', JSON.stringify(currentPlayers))
     }
 
+    const navNextHole = () => {
+
+    }
+
+    // change display to onne hole at at time. HAve next hole button. Display each player and hole number on scorecard
     return (
     <div className="mainContainer">
         <h2>Scorecard</h2>
@@ -75,9 +80,10 @@ const ScoreCard = (props) => {
                         </form>
                     </div> 
                     )  
-            })
+                })
             })}
         </div>
+            <button className='nextHoleButton' onClick={navNextHole}>Next Hole</button>
     </div>
   );
 }
