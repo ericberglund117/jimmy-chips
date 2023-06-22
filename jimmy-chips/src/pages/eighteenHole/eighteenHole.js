@@ -35,25 +35,26 @@ const EighteenHole = () => {
         navigate("/finished-round")
     }
 
-    // const currentScoreKeeper = () => {
-    //    return currentPlayers.map(player => {
-    //         let scoreKeys = Object.keys(player.score)
-    //         console.log(scoreKeys)
-    //     })
-    // }
-    // console.log(currentScoreKeeper())
-
   return (
     <div className="eighteenHole">
         <h2>eighteen Holes</h2>
         {currentPlayers.map((player, index) => {
-            return <div>
-                    <p key={player.name}>{player.name}</p>
-                    <p key={index}>{player.chips}</p>
-                    {player.chips.length > 0 ? player.chips.map((chip, chipIndex) => {
-                    return <button className='removeChip' key= {"chips"+ chipIndex} onClick={() => removeChipsButton(chip, player.name)}>Remove Chip</button>
-                    }) : null }
-                    {/* {Object.keys(player.score).length > 0 ? } */}
+            let holeScore = Object.values(player.score)
+            const currentTotalScore = holeScore.reduce((acc, score) => {
+                acc += Number(score)
+                return acc
+            }, 0)
+            return <div className='holePlayerInformation'>
+                        <p className='holePlayerName' key={player.name}>{player.name}</p>
+                        {player.chips.length > 0 ? player.chips.map((chip) => {
+                                    return (
+                                    <div className='currentChipsContainer'> 
+                                        <p className='holePlayerChips' key={"pc" + index}>{chip}</p>
+                                        <button className='removeChip' key= {"chips" + chip} onClick={() => removeChipsButton(chip, player.name)}>Remove Chip</button>
+                                    </div>
+                                    )
+                                }) : null }
+                                <p className='currentTotalScore'>Current Score: {currentTotalScore}</p>
                     </div>
         })
         }

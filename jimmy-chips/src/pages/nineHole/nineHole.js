@@ -39,16 +39,22 @@ const NineHole = () => {
             <h2>Nine Holes</h2>
             <div className='nineHoleContainer'>
                 {currentPlayers.map((player, index) => {
+                    let holeScore = Object.values(player.score)
+                    const currentTotalScore = holeScore.reduce((acc, score) => {
+                        acc += Number(score)
+                        return acc
+                    }, 0)
                     return <div className='holePlayerInformation'>
-                            <p className='holePlayerName' key={player.name}>{player.name}</p>
-                            {player.chips.length > 0 ? player.chips.map((chip) => {
-                            return (
-                              <div className='currentChipsContainer'> 
-                                <p className='holePlayerChips' key={"pc" + index}>{chip}</p>
-                                <button className='removeChip' key= {"chips" + chip} onClick={() => removeChipsButton(chip, player.name)}>Remove Chip</button>
-                              </div>
-                            )
-                            }) : null }
+                                    <p className='holePlayerName' key={player.name}>{player.name}</p>
+                                    {player.chips.length > 0 ? player.chips.map((chip) => {
+                                    return (
+                                    <div className='currentChipsContainer'> 
+                                        <p className='holePlayerChips' key={"pc" + index}>{chip}</p>
+                                        <button className='removeChip' key= {"chips" + chip} onClick={() => removeChipsButton(chip, player.name)}>Remove Chip</button>
+                                    </div>
+                                    )
+                                }) : null }
+                                <p className='currentTotalScore'>Current Score: {currentTotalScore}</p>
                             </div>
                 })
                 }
