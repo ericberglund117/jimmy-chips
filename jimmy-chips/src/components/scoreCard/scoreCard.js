@@ -14,7 +14,8 @@ const ScoreCard = (props) => {
     let holesCount = holesPath[1].includes('eighteen') ? eighteenHolesCount : nineHolesCount
     console.log('holesCount', holesCount)
     const [eighteenCurrentPlayers, setEighteenCurrentPlayers] = useState([])
-
+    let [count, setCount] = useState(0)
+    let completedHoles = false
     // useEffect(() => {
     //  if(holesCount.length > 10) {
     //     const [...storedPlayers] = getStorageValue('allPlayers')
@@ -48,9 +49,30 @@ const ScoreCard = (props) => {
         localStorage.setItem('allPlayers', JSON.stringify(currentPlayers))
     }
 
-    const navNextHole = () => {
-
+    const displayCurrentHole = () => {
+        let currentHole = holesCount[count]
+        console.log(currentHole)
+        if (currentHole === holesCount.length) completedHoles = true
+            return (
+                <form className='scoreForm'>
+                    <p className='holeNumber'>Hole: {currentHole}</p>
+                    <label htmlFor='playerScore'>Score: </label>
+                    <input 
+                    type='number' 
+                    className='scoreInput'
+                    onChange={(e) => {
+                        setScoreValue((prev) => {
+                            return {...prev, [currentHole]: e.target.value}
+                        })
+                    }} />
+                 </form>
+            )   
     }
+
+    // const navNextHole = () => {
+    //    const nextHole = count++
+    //     displayCurrentHole(nextHole)
+    // }
 
     // change display to onne hole at at time. HAve next hole button. Display each player and hole number on scorecard
     return (
@@ -58,12 +80,13 @@ const ScoreCard = (props) => {
         <h2>Scorecard</h2>
         <div className='scoreContainer'>
             {currentPlayers.map((player, playIndex) => {
-                return holesCount.map((hole, index) => {
+                // return holesCount.map((hole, index) => {
                     return(
                     <div className='scoreCardContainer'>
-                        <div className='currentHole' key={"hole" + index}>{hole}</div>
+                        {/* <div className='currentHole' key={"hole" + index}>{hole}</div> */}
                         <h3 className='playerName' key={player.name}>{player.name}</h3>
-                        <form className='scoreForm'>
+                        {displayCurrentHole()}
+                        {/* <form className='scoreForm'>
                             <label htmlFor='playerScore'>Score: </label>
                             <input 
                             type='number' 
@@ -77,13 +100,17 @@ const ScoreCard = (props) => {
                             <Link to={`/assign-chips/${player.name}`}>
                                 <button className='addChips' onClick={navigateToChips}>Chips</button>
                             </Link>
-                        </form>
+                        </form> */}
+                        <button className='enterScore' onClick={(e) => updateScore(e, player)}>Submit Score</button>
+                            <Link to={`/assign-chips/${player.name}`}>
+                                <button className='addChips' onClick={navigateToChips}>Chips</button>
+                            </Link>
                     </div> 
                     )  
-                })
+                // })
             })}
         </div>
-            <button className='nextHoleButton' onClick={navNextHole}>Next Hole</button>
+            <button className='nextHoleButton' onClick={() => setCount(count + 1)} disabled={completedHoles} >Next Hole</button>
     </div>
   );
 }
