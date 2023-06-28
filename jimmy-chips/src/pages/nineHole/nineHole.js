@@ -6,13 +6,14 @@ import { useLocalStorage, getStorageValue} from '../../useLocalStorage';
 
 const NineHole = () => {
     const [currentPlayers, setCurrentPlayers] = useState([])
+    const [reRender, setReRender] = useState(false)
     const navigate = useNavigate()
     
-        useEffect(() => {
-            const [...currentStoredPlayers] = getStorageValue('allPlayers')
-            setCurrentPlayers([...currentStoredPlayers])
-
-        }, [])
+    useEffect(() => {
+        const [...currentStoredPlayers] = getStorageValue('allPlayers')
+        setCurrentPlayers([...currentStoredPlayers])
+        setReRender(false)
+    }, [reRender])
 
     const navigateBack = () => {
         navigate('/setup')
@@ -28,8 +29,20 @@ const NineHole = () => {
 
     const finishRound = () => {
         const endPlayers = getStorageValue('allPlayers')
-        console.log(endPlayers)
+        // console.log(endPlayers)
         navigate("/finished-round")
+    }
+
+    const updateCurrentScore = (score, player) => {
+        // console.log(score)
+        // console.log(player)
+        // console.log('update nine')
+        // const correctPlayer = currentPlayers.find(currPlayer => currPlayer.name === player.name)
+        // player.score = score
+        // setCurrentPlayers(...currentPlayers, [correctPlayer])
+        // localStorage.setItem('allPlayers', JSON.stringify(currentPlayers))
+        console.log("nine", currentPlayers)
+        setReRender(true)
     }
         
 
@@ -66,6 +79,7 @@ const NineHole = () => {
         </div>
         <ScoreCard 
             currentPlayers={currentPlayers}
+            updateCurrentScore={updateCurrentScore}
         />
     </div>    
   );

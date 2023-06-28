@@ -4,7 +4,6 @@ export const getStorageValue = (defaultValue) => {
   // getting stored value
   const allPlayersKey = localStorage.getItem(defaultValue)
   const initial = JSON.parse(allPlayersKey);
-  console.log('store', initial)
   return initial 
 }
 
