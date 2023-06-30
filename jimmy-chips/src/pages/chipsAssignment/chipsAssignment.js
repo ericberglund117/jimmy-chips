@@ -73,7 +73,6 @@ const ChipsAssignment = () => {
 
 
     const navigateBack = () => {
-        console.log("nav", currentPlayers)
         let result = currentPlayers.map(player => {
             player.full === true ? pathCheck = true : pathCheck = false;
             return pathCheck

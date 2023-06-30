@@ -47,7 +47,11 @@ const ScoreCard = (props) => {
     }
 
     const setPlayersToEighteen = () => {
-        localStorage.setItem('allPlayers', JSON.stringify(currentPlayers))
+        const eighteenUpdate = currentPlayers.map(player => {
+            player.full = true
+            return player
+        })
+        localStorage.setItem('allPlayers', JSON.stringify(eighteenUpdate))
         let check = getStorageValue('allPlayers')
         console.log(check)
     }

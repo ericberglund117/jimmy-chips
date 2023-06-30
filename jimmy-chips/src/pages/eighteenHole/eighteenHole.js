@@ -9,7 +9,6 @@ import { useLocalStorage, getStorageValue} from '../../useLocalStorage';
 const EighteenHole = () => {
     const [currentPlayers, setCurrentPlayers] = useState([])
     const navigate = useNavigate()
-    console.log("18 start", currentPlayers)
     
         useEffect(() => {
             const [...currentStoredPlayers] = getStorageValue('allPlayers')
