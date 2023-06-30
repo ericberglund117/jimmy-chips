@@ -18,6 +18,20 @@ const ChipsAssignment = () => {
         'Beer Chip',
         'Snowman'
     ]
+    const positiveChips = [
+        'Par',
+        'Sandy Par',
+        'Birdie',
+        'One Putt',
+    ]
+    const negativeChips = [
+        'Out of Bounds',
+        'Water',
+        'Tree',
+        'Gravedigger',
+        'Beer Chip',
+        'Snowman'
+    ]
     const [currentPlayers, setCurrentPlayers] = useState([])
     let pathCheck 
 
@@ -75,10 +89,18 @@ const ChipsAssignment = () => {
             <button className='navBack' onClick={navigateBack}>Back</button>
         </section>
         <h2>Chips</h2>
-        {allChips.map((chip, index) => {
+        {positiveChips.map((chip, index) => {
             return (
                 <section className='chipContainer'>
-                    <p className="specificChip" key={index}>{chip}</p>
+                    <p className="specificPosChip" key={index}>{chip}</p>
+                    <button className='assignChip' onClick={() => setChipValue(chip)} key={chip}>Assign Chip</button>
+                </section>
+            )
+        })}
+        {negativeChips.map((chip, index) => {
+            return (
+                <section className='chipContainer'>
+                    <p className="specificNegChip" key={index}>{chip}</p>
                     <button className='assignChip' onClick={() => setChipValue(chip)} key={chip}>Assign Chip</button>
                 </section>
             )

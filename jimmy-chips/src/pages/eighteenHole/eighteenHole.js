@@ -37,7 +37,7 @@ const EighteenHole = () => {
 
   return (
     <div className="eighteenHole">
-        <h2>eighteen Holes</h2>
+        <h2>Eighteen Holes</h2>
         <div className='eighteenHoleContainer'>
         {currentPlayers.map((player, index) => {
             let holeScore = Object.values(player.score)
@@ -66,6 +66,7 @@ const EighteenHole = () => {
         </div>
         <ScoreCard 
             currentPlayers={currentPlayers}
+            eighteenHolesCheck={true}
         />
     </div>
   );

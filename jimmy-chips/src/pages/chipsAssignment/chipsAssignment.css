@@ -31,7 +31,7 @@ and (max-width: 400px) {
         min-width: 120px;
    }
    
-   .specificChip {
+   .specificPosChip {
         border: solid;
         border-radius: 50%;
         width: 50px;
@@ -41,6 +41,17 @@ and (max-width: 400px) {
         box-shadow: 0 0 50px #ccc;
         align-self: center;
    }
+
+   .specificNegChip {
+     border: solid;
+     border-radius: 50%;
+     width: 50px;
+     min-width: fit-content;
+     background-color: white;
+     padding: 10px;
+     box-shadow: 0 0 50px #ccc;
+     align-self: center;
+}
 
    .chipContainer {
     display: flex;
