@@ -5,6 +5,7 @@ import './scoreCard.css';
 
 const ScoreCard = (props) => {
     let currentPlayers = props.currentPlayers
+    let eighteenHolesCheck = props.eighteenHolesCheck
     const nineHolesCount = [1,2,3,4,5,6,7,8,9]
     const eighteenHolesCount = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]
     const [scoreValue, setScoreValue] = useState({})
@@ -35,32 +36,35 @@ const ScoreCard = (props) => {
     //  }    
     // }, [holesCount.length])
 
+    console.log(currentPlayers)
+
     const navigateToChips = (e) => {
         // e.preventDefault()
-        if (holesCount.length > 10) {
+        if (eighteenHolesCheck) {
             setPlayersToEighteen()
         }
         navigate('/assign-chips/:id')
     }
 
     const setPlayersToEighteen = () => {
-        console.log('set players', eighteenCurrentPlayers)
-        localStorage.setItem('allPlayers', JSON.stringify(eighteenCurrentPlayers))
+        localStorage.setItem('allPlayers', JSON.stringify(currentPlayers))
+        let check = getStorageValue('allPlayers')
+        console.log(check)
     }
 // figure out way to display current score after navigating through chips and back to score card. Currently score input is blank after chip assignment
-    const updateScore = (e, player, currentHole) => {
-        e.preventDefault()
-        console.log(currentPlayers)
-        // // setPlayerScore(currentHole, player)
-        const correctPlayer = currentPlayers.find(currPlayer => currPlayer.name === player.name)
-        // // setScoreValue((prevState) => ({ ...prevState, [currentHole]: scoreInput }))
-        correctPlayer.score = {...scoreValue}
-        // console.log(correctPlayer)
-        console.log(currentPlayers)
-        formRef.current.reset();
-        // localStorage.setItem('allPlayers', JSON.stringify(currentPlayers))
-        // props.updateCurrentScore(scoreValue, player)
-    }
+    // const updateScore = (e, player, currentHole) => {
+    //     e.preventDefault()
+    //     console.log(currentPlayers)
+    //     // // setPlayerScore(currentHole, player)
+    //     const correctPlayer = currentPlayers.find(currPlayer => currPlayer.name === player.name)
+    //     // // setScoreValue((prevState) => ({ ...prevState, [currentHole]: scoreInput }))
+    //     correctPlayer.score = {...scoreValue}
+    //     // console.log(correctPlayer)
+    //     console.log(currentPlayers)
+    //     formRef.current.reset();
+    //     // localStorage.setItem('allPlayers', JSON.stringify(currentPlayers))
+    //     // props.updateCurrentScore(scoreValue, player)
+    // }
 
     // const displayCurrentHole = (player) => {
     //     let currentHole = holesCount[count]
@@ -200,20 +204,20 @@ const ScoreCard = (props) => {
         
     // }
 
-    const handleChange = (value, currentHole, player) => {
-        // const numberOfPlayers = currentPlayers.length
-        // console.log(numberOfPlayers)
-        // console.log(currentPlayers)
-        // console.log(currentHole)
-        // const correctPlayer = currentPlayers.find(currPlayer => currPlayer.name === player.name)
-        // if (correctPlayer) {
-        //     console.log(correctPlayer)
-        console.log(value)
-            setScoreValue( prevState => ({...prevState, [currentHole]: value}))
-            console.log(scoreValue)
-            // correctPlayer.score = scoreValue
-        // }
-    }
+    // const handleChange = (value, currentHole, player) => {
+    //     // const numberOfPlayers = currentPlayers.length
+    //     // console.log(numberOfPlayers)
+    //     // console.log(currentPlayers)
+    //     // console.log(currentHole)
+    //     // const correctPlayer = currentPlayers.find(currPlayer => currPlayer.name === player.name)
+    //     // if (correctPlayer) {
+    //     //     console.log(correctPlayer)
+    //     console.log(value)
+    //         setScoreValue( prevState => ({...prevState, [currentHole]: value}))
+    //         console.log(scoreValue)
+    //         // correctPlayer.score = scoreValue
+    //     // }
+    // }
 
     return (
     <div className="mainContainer">
