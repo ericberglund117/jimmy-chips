@@ -38,6 +38,7 @@ const EighteenHole = () => {
   return (
     <div className="eighteenHole">
         <h2>eighteen Holes</h2>
+        <div className='eighteenHoleContainer'>
         {currentPlayers.map((player, index) => {
             let holeScore = Object.values(player.score)
             const currentTotalScore = holeScore.reduce((acc, score) => {
@@ -58,8 +59,11 @@ const EighteenHole = () => {
                     </div>
         })
         }
-        <button className='back-button' onClick={navigateBack}>Back</button>
-        <button className='allDoneButton' onClick={finishRound}>Finish Round</button>
+        <div className='holeButtonContainer'>
+                <button className='back-button' onClick={navigateBack}>Back</button>
+                <button className='allDoneButton' onClick={finishRound}>Finish Round</button>
+            </div>
+        </div>
         <ScoreCard 
             currentPlayers={currentPlayers}
         />

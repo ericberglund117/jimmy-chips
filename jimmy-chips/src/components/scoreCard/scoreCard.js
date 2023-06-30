@@ -226,7 +226,8 @@ const ScoreCard = (props) => {
                     return(
                     <div className='scoreCardContainer'>
                         <h3 className='playerName' key={player.name}>{player.name}</h3>
-                        <form className='scoreForm' ref={formRef}>
+                        <p className='holeNumber'>Hole: {currentHole}</p>
+                        {/* <form className='scoreForm' ref={formRef}>
                             <p className='holeNumber'>Hole: {currentHole}</p>
                             <label htmlFor='playerScore'>Score: </label>
                             <input 
@@ -244,7 +245,7 @@ const ScoreCard = (props) => {
                             <button className='enterScore' onClick={(e) => {
                                 updateScore(e, player, currentHole)
                                 }}>Submit Score</button>
-                        </form>  
+                        </form>   */}
                         {/* {displayCurrentHole(player)} */}
                         {/* <button className='enterScore' onClick={(e) => updateScore(e, player)}>Submit Score</button> */}
                             <Link to={`/assign-chips/${player.name}`}>
