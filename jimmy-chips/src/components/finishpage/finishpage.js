@@ -44,9 +44,11 @@ const FinishPage = () => {
           let message = ''
            return currentPlayers.map(player => {
             if (player.chipsScore < 0)  {
-              message = `${player.name} owes everyone ${Math.abs(player.chipsScore)}`
+              message = `${player.name} owes everyone ${Math.abs(player.chipsScore)}!`
+            } else if (player.chipsScore > 0) {
+              message = `${player.name} recieves ${Math.abs(player.chipsScore)} from everyone!`
             } else {
-              message = `${player.name} recieves ${Math.abs(player.chipsScore)} from everyone`
+              message = `${player.name} is washed up!`
             }
             return (
               <div className='winningsContainer'>
