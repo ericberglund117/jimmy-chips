@@ -202,3 +202,31 @@ and (max-width: 390px)  {
         }
       }
 }
+
+@media only screen 
+and (max-width: 1000px)  {
+  .wrapper {
+    left: 40%;
+  }
+}
+
+@media only screen 
+and (max-width: 675px)  {
+  .wrapper {
+    left: 35%;
+  }
+}
+
+@media only screen 
+and (max-width: 525px)  {
+  .wrapper {
+    left: 30%;
+  }
+}
+
+@media only screen 
+and (max-width: 400px)  {
+  .wrapper {
+    left: 26%;
+  }
+}

@@ -20,11 +20,8 @@ const ChipsAssignment = () => {
     ]
     const [currentPlayers, setCurrentPlayers] = useState([])
     let pathCheck 
-
-    //change button or give some sort of visual confirmation that chip as been assigned
-
     const playerNameForChips = pathname.split("/")
-    console.log("chips start", currentPlayers)
+
     useEffect(() => {
         const [...currentStoredPlayers] = getStorageValue('allPlayers')
         setCurrentPlayers([...currentStoredPlayers])
