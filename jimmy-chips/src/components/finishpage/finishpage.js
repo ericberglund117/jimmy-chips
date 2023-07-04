@@ -41,10 +41,16 @@ const FinishPage = () => {
 
         const calculateWinnings = () => {
           console.log(currentPlayers)
+          let message = ''
            return currentPlayers.map(player => {
+            if (player.chipsScore < 0)  {
+              message = `${player.name} owes everyone ${Math.abs(player.chipsScore)}`
+            } else {
+              message = `${player.name} recieves ${Math.abs(player.chipsScore)} from everyone`
+            }
             return (
               <div className='winningsContainer'>
-                <p className='indMessage'>{player.name} owes everyone {Math.abs(player.chipsScore)}</p>
+                <p className='indMessage'>{message}</p>
               </div>
             )
            })
