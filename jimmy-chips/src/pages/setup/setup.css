@@ -17,25 +17,62 @@
 .playersContainer {
     font-family: 'Lora';
     color: #283618;
+    display: flex;
+        justify-content: space-evenly;
+        margin-top: 20px;
+        margin-bottom: 20px;
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
 }
 
 .submit {
     background-color: #283618;
     color: #fefae0 ;
+    border-radius:10px;
+        box-shadow: 0px 0px 2px 2px rgb(0,0,0);
+        min-height:fit-content;
+        min-width: fit-content;
+        margin-left: 10px;
+        margin-top: 20px;
 }
 
 .nineHoleButton {
     background-color: #283618;
     color: #fefae0 ;
+    border-radius:10px;
+        box-shadow: 0px 0px 2px 2px rgb(0,0,0);
+        min-height:fit-content;
+        min-width: fit-content;
+        margin-left: 10px;
 }
 
 .eighteenHoleButton {
     background-color: #283618;
     color: #fefae0 ;
+    border-radius:10px;
+        box-shadow: 0px 0px 2px 2px rgb(0,0,0);
+        min-height:fit-content;
+        min-width: fit-content;
+        margin-left: 10px;
+}
+
+.addedPlayer {
+    border: solid;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    min-width: fit-content;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 0 50px #ccc;
 }
 
 @media only screen 
-and (max-width: 400px) {
+and (max-width: 390px) {
     .submit {
         font-family: 'Lora';
         border-radius:10px;
@@ -43,7 +80,6 @@ and (max-width: 400px) {
         min-height:fit-content;
         min-width: fit-content;
         margin-left: 10px;
-        /* position: relative; */
     }
     
     .playerForm {

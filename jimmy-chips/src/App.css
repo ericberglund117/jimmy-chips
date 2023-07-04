@@ -35,8 +35,12 @@ h3 {
   text-decoration: underline;
 }
 
+.title {
+  margin-top: 30px;
+}
+
 @media only screen 
-and (max-width: 400px)  {
+and (max-width: 390px)  {
   .titleContainer {
     font-size: 35px;
     background-image: linear-gradient(to left, #DDA15E, #DDA15E);

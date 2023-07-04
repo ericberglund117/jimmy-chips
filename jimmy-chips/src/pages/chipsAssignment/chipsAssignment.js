@@ -83,7 +83,7 @@ const ChipsAssignment = () => {
     }
 
   return (
-    <div className="scoreCardContainer">
+    <div className="assignChipsContainer">
         <section className='navBackContainer'>
             <button className='navBack' onClick={navigateBack}>Back</button>
         </section>

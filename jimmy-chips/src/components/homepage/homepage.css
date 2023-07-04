@@ -1,12 +1,15 @@
 .instructionsContainer {
     /* font-family: 'Lora'; */
+    margin: 50px;
+    margin-bottom: auto;
 }
 
 .homepageButtons {
     display: flex;
     justify-content: space-evenly;
     margin-top: 50px;
-    position: fixed;
+    z-index: 1;
+    /* position: fixed; */
 }
 
 .howToPlayButton {
@@ -35,11 +38,62 @@
     flex-direction: column;
 }
 
+.fillerContainer {
+  min-height: 50vh;
+  margin-top: 25px;
+}
+
+.wrapper {
+  position: fixed;
+  top: 75%;
+  left: 43%;
+}
+.ball {
+  width:200px;
+  height:200px;
+  position:absolute;
+  border-radius:50%;
+  overflow:hidden;
+  box-shadow: -5px -5x 5px red;
+  left:25%;
+  top:25%;
+  box-shadow: -3px 3px 15px rgba(0,0,0,0.35), 0px 0px 100px rgba(0,0,0,0.25), 0px 0px 5px rgba(255,255,255,0.5);
+  z-index: 1;
+}
+
+.ball:before {
+  position: absolute;
+  content: '';
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(transparent 0%, rgba(0,0,0,0.2) 50%);
+  transform: rotate(-125deg);
+}
+
+.texture{
+  position: relative;
+  animation: translateBackground 40s infinite linear;  
+  background:url(http://thumbs.dreamstime.com/x/golf-ball-texture-17926947.jpg) 0% 0 repeat-x;
+  width:200px;
+  height:200px;
+  position:absolute;
+  border-radius:50%;
+}
+
+@keyframes translateBackground{
+  0%{
+    background-position-x:0;
+  }
+  100%{
+    background-position-x:-600px;
+  }
+}
+
 @media only screen 
-and (max-width: 400px)  {
+and (max-width: 390px)  {
     .instructionsContainer {
         margin: 25px;
-        
+        margin-bottom: auto;
     }
 
     .howToPlayButton {
