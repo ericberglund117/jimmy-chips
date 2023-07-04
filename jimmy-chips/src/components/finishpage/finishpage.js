@@ -39,8 +39,15 @@ const FinishPage = () => {
           navigate('/')
         }
 
-        const displayWinnings = () => {
-          
+        const calculateWinnings = () => {
+          console.log(currentPlayers)
+           return currentPlayers.map(player => {
+            return (
+              <div className='winningsContainer'>
+                <p className='indMessage'>{player.name} owes everyone {Math.abs(player.chipsScore)}</p>
+              </div>
+            )
+           })
         }
 
   return (
@@ -52,15 +59,16 @@ const FinishPage = () => {
                     //     acc += Number(score)
                     //     return acc
                     //     }, 0)
-                        let endCount = 0
-                        let endChips = player.chips
-                        if (endChips.length === 0) {
-                          return player
-                        }
-                        endChips.forEach(chip => {
-                          positiveChips.includes(chip) ? endCount += 1 : endCount -= 1;
-                        })
-                        player.endEarnings = endCount
+                    let endCount = 0
+                    let endChips = player.chips
+                    if (endChips.length === 0) {
+                      player.chipsScore = 0
+                    } else {
+                      endChips.forEach(chip => {
+                        positiveChips.includes(chip) ? endCount += 1 : endCount -= 1;
+                      })
+                      player.chipsScore = endCount
+                    }   
                     return <div className='holePlayerInformation'>
                               <p className='holePlayerName' key={player.name}>{player.name}</p>
                               {player.chips.length > 0 ? player.chips.map((chip) => {
@@ -71,11 +79,12 @@ const FinishPage = () => {
                                 </div>
                               )
                             }) : null }
-                            <p className='currentTotalScore'>Total Score: {player.endEarnings}</p>
+                            <p className='currentTotalScore'>Chip Score: {player.chipsScore}</p>
                           </div>
                 })
                 }
             </div>
+            {calculateWinnings()}
             <button className='endRound' onClick={endRound}>Return Home</button>
     </div>    
   );

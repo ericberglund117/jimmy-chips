@@ -11,6 +11,15 @@
     margin-bottom: 15px;
 }
 
+.winningsContainer {
+    border: 2px solid;
+    margin: 3px
+}
+
+.currentTotalScore {
+    margin-left: 10px;
+}
+
 
 @media only screen 
 and (max-width: 390px) {
