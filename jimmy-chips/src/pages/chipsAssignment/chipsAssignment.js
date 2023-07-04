@@ -18,20 +18,6 @@ const ChipsAssignment = () => {
         'Beer Chip',
         'Snowman'
     ]
-    const positiveChips = [
-        'Par',
-        'Sandy Par',
-        'Birdie',
-        'One Putt',
-    ]
-    const negativeChips = [
-        'Out of Bounds',
-        'Water',
-        'Tree',
-        'Gravedigger',
-        'Beer Chip',
-        'Snowman'
-    ]
     const [currentPlayers, setCurrentPlayers] = useState([])
     let pathCheck 
 
@@ -62,6 +48,7 @@ const ChipsAssignment = () => {
 
     const updatePlayersAfterChips = (updatedPlayers) => {
         console.log("upChips", updatedPlayers)
+        console.log(updatedPlayers)
         localStorage.setItem("allPlayers", JSON.stringify(updatedPlayers))
     }
 
@@ -82,28 +69,26 @@ const ChipsAssignment = () => {
         navigate('/eighteen-holes')
     }
 
-  return (
-    <div className="assignChipsContainer">
-        <section className='navBackContainer'>
-            <button className='navBack' onClick={navigateBack}>Back</button>
-        </section>
-        <h2>Chips</h2>
-        {positiveChips.map((chip, index) => {
+    const checkChips = () => {
+        let currentChips = flatten(currentPlayers.map(player => player.chips))
+        const updatedChipsArr = allChips.filter(chip => !currentChips.includes(chip))
+        return updatedChipsArr.map((chip, index) => {
             return (
                 <section className='chipContainer'>
                     <p className="specificPosChip" key={index}>{chip}</p>
                     <button className='assignChip' onClick={() => setChipValue(chip)} key={chip}>Assign Chip</button>
                 </section>
             )
-        })}
-        {negativeChips.map((chip, index) => {
-            return (
-                <section className='chipContainer'>
-                    <p className="specificNegChip" key={index}>{chip}</p>
-                    <button className='assignChip' onClick={() => setChipValue(chip)} key={chip}>Assign Chip</button>
-                </section>
-            )
-        })}
+        })
+    }
+
+  return (
+    <div className="assignChipsContainer">
+        <section className='navBackContainer'>
+            <button className='navBack' onClick={navigateBack}>Back</button>
+        </section>
+        <h2>Chips</h2>
+        {checkChips()}
         {/* <Link to={pathCheck ? '/nine-holes' : '/eighteen-holes'}> */}
             
          {/* </Link> */}
