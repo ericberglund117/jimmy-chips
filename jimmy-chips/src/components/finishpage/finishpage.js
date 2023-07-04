@@ -6,6 +6,20 @@ import { useLocalStorage, getStorageValue} from '../../useLocalStorage';
 const FinishPage = () => {
     const [currentPlayers, setCurrentPlayers] = useState([])
     const navigate = useNavigate()
+    const positiveChips = [
+        'Par',
+        'Sandy Par',
+        'Birdie',
+        'One Putt',
+    ]
+    const negativeChips = [
+        'Out of Bounds',
+        'Water',
+        'Tree',
+        'Gravedigger',
+        'Beer Chip',
+        'Snowman'
+    ]
     
         useEffect(() => {
             const [...currentStoredPlayers] = getStorageValue('allPlayers')
@@ -25,15 +39,28 @@ const FinishPage = () => {
           navigate('/')
         }
 
+        const displayWinnings = () => {
+          
+        }
+
   return (
     <div className='finishContainer'>
       <div className='nineHoleContainer'>
                 {currentPlayers.map((player, index) => {
-                    let holeScore = Object.values(player.score)
-                    const currentTotalScore = holeScore.reduce((acc, score) => {
-                        acc += Number(score)
-                        return acc
-                        }, 0)
+                    // let holeScore = Object.values(player.score)
+                    // const currentTotalScore = holeScore.reduce((acc, score) => {
+                    //     acc += Number(score)
+                    //     return acc
+                    //     }, 0)
+                        let endCount = 0
+                        let endChips = player.chips
+                        if (endChips.length === 0) {
+                          return player
+                        }
+                        endChips.forEach(chip => {
+                          positiveChips.includes(chip) ? endCount += 1 : endCount -= 1;
+                        })
+                        player.endEarnings = endCount
                     return <div className='holePlayerInformation'>
                               <p className='holePlayerName' key={player.name}>{player.name}</p>
                               {player.chips.length > 0 ? player.chips.map((chip) => {
@@ -44,12 +71,12 @@ const FinishPage = () => {
                                 </div>
                               )
                             }) : null }
-                            <p className='currentTotalScore'>Total Score: {currentTotalScore}</p>
+                            <p className='currentTotalScore'>Total Score: {player.endEarnings}</p>
                           </div>
                 })
                 }
             </div>
-            <button className='endRound' onClick={endRound}>End Round</button>
+            <button className='endRound' onClick={endRound}>Return Home</button>
     </div>    
   );
 }
