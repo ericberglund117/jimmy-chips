@@ -21,14 +21,16 @@ const Setup = () => {
                 name: "Mittens",
                 chips: [],
                 score: {},
-                full: false
+                full: false,
+                holeCount: 1
         }
         } else {
             updatedPlayerName = {
                     name: value,
                     chips: [],
                     score: {},
-                    full: false
+                    full: false, 
+                    holeCount: 1
             }
         }
         if (Object.keys(playerObject).length === 0) {

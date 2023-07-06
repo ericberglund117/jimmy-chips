@@ -118,7 +118,7 @@ and (max-width: 390px)  {
 
     .wrapper {
         position: fixed;
-        top: 75%;
+        top: 70%;
         left: 25%;
       }
       .ball {
@@ -220,13 +220,13 @@ and (max-width: 675px)  {
 @media only screen 
 and (max-width: 525px)  {
   .wrapper {
-    left: 30%;
+    left: 24%;
   }
 }
 
-@media only screen 
+/* @media only screen 
 and (max-width: 400px)  {
   .wrapper {
     left: 26%;
   }
-}
+} */

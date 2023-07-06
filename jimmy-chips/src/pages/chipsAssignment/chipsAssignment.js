@@ -19,6 +19,7 @@ const ChipsAssignment = () => {
         'Snowman'
     ]
     const [currentPlayers, setCurrentPlayers] = useState([])
+    const [currentHoleCount, setCurrentHoleCount] = useState(0)
     let pathCheck 
     const playerNameForChips = pathname.split("/")
 
@@ -26,6 +27,7 @@ const ChipsAssignment = () => {
         const [...currentStoredPlayers] = getStorageValue('allPlayers')
         setCurrentPlayers([...currentStoredPlayers])
     }, [])
+
 
     const setChipValue = (selectedChip) => {
        const check = allChips.filter(chip => chip === selectedChip)
