@@ -67,7 +67,7 @@ const NineHole = () => {
                                     </div>
                                     )
                                 }) : null }
-                                <p className='currentTotalScore'>Current Score: {currentTotalScore}</p>
+                                {/* <p className='currentTotalScore'>Current Score: {currentTotalScore}</p> */}
                             </div>
                 })
                 }
@@ -79,7 +79,8 @@ const NineHole = () => {
         </div>
         <ScoreCard 
             currentPlayers={currentPlayers}
-            updateCurrentScore={updateCurrentScore}
+            eighteenHolesCheck={false}
+            // updateCurrentScore={updateCurrentScore}
         />
     </div>    
   );
