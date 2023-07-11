@@ -297,8 +297,10 @@ const ScoreCard = (props) => {
                     )  
             })}
         </div>
+        <div className='holeMovementContainer'>
             <button className='nextHoleButton' onClick={decreaseHoleCount} disabled={negativeHoles} >Previous Hole</button>
             <button className='nextHoleButton' onClick={increaseHoleCount} disabled={completedHoles} >Next Hole</button>
+        </div>
     </div>
   );
 }

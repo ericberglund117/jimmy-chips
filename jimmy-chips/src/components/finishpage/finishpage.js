@@ -73,7 +73,13 @@ const FinishPage = () => {
                       player.chipsScore = 0
                     } else {
                       endChips.forEach(chip => {
-                        positiveChips.includes(chip) ? endCount += 1 : endCount -= 1;
+                        if (Array.isArray(chip)) {
+                          chip.forEach(single => {
+                            positiveChips.includes(single) ? endCount += 1 : endCount -= 1;
+                          })
+                        } else {
+                          positiveChips.includes(chip) ? endCount += 1 : endCount -= 1;
+                        }
                       })
                       player.chipsScore = endCount
                     }   

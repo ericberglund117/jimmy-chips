@@ -82,6 +82,13 @@
         cursor: pointer;
   }
 
+    .holeMovementContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-top: 20px;
+        margin-bottom: 20px;
+  }
 
 
 @media only screen 
