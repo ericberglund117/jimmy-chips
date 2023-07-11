@@ -7,9 +7,10 @@
      min-height:30px; 
      min-width: 120px;
      align-self: center;
+     cursor: pointer;
 }
  
-.assignChip:hover {
+.assignChip:hover:before {
      background-color: #606C38;
 }
 
