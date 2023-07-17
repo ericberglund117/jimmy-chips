@@ -74,6 +74,7 @@ const FinishPage = () => {
                     } else {
                       endChips.forEach(chip => {
                         if (Array.isArray(chip)) {
+                          console.log(chip)
                           chip.forEach(single => {
                             positiveChips.includes(single) ? endCount += 1 : endCount -= 1;
                           })

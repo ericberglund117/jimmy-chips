@@ -54,7 +54,7 @@ const EighteenHole = () => {
                                     </div>
                                     )
                                 }) : null }
-                                <p className='currentTotalScore'>Current Score: {currentTotalScore}</p>
+                                {/* <p className='currentTotalScore'>Current Score: {currentTotalScore}</p> */}
                     </div>
         })
         }
