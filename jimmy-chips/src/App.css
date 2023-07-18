@@ -3,14 +3,21 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  /* background-color: #FEFAE0; */
-  background-image: url("assets/westwoods-3.jpg");
+  background: url("./assets/westwoods3.jpg") no-repeat;
   background-size: cover;
   background-position: center;
 }
 
 .appContainer {
-  /* background-color: #FEFAE0; */
+  background: rgba(254, 250, 224, .7);
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  padding: 20px;
+  align-self: center;
+  margin-top: 30px;
+  border-radius: 12%;
+  margin-bottom: 30px;
 }
 
 body {
@@ -50,6 +57,12 @@ and (max-width: 390px)  {
     font-size: 35px;
     text-shadow: 0px 0px 5px #606c38, 0px 0px 10px #606c38, 0px 0px 10px #606c38,
     0px 0px 20px #606c38;
+  }
+
+  .appContainer {
+    /* padding: 5px; */
+    padding-left: 15px;
+    padding-right:15px;
   }
 }
 

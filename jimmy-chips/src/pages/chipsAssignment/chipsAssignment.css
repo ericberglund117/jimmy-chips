@@ -55,7 +55,6 @@
 .chipContainer {
  display: flex;
  flex-direction: column;
- background-color: #fefae0;
  padding-bottom: 15px;
 }
 
@@ -117,7 +116,6 @@ and (max-width: 390px) {
    .chipContainer {
     display: flex;
     flex-direction: column;
-    background-color: #fefae0;
     padding-bottom: 15px;
    }
 }

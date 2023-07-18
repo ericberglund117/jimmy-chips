@@ -86,13 +86,13 @@ const Setup = () => {
         <button className='nineHoleButton' onClick={playNine}>Play Nine Holes</button>
         <button className='eighteenHoleButton' onClick={playEighteen}>Play Eighteen Holes</button>
      </div>
-     <section className='fillerContainer'>
+     {/* <section className='fillerContainer'>
             <div class="wrapper">
                 <div class="ball"> 
                     <div class="texture"></div>  
                 </div>
             </div>
-    </section>
+    </section> */}
     </div>
   );
 }

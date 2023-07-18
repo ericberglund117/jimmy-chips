@@ -12,10 +12,13 @@
 }
 
 .winningsContainer {
-    /* border: 2px solid; */
+    border: 2px solid;
+    border-radius: 10%;
     margin: 3px;
     width: fit-content;
     align-self: center;
+    background-color: #DDA15E;
+    padding: 10px;
 }
 
 .currentTotalScore {
@@ -26,6 +29,11 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+
+.indMessage {
+    color: #283618;
+    font-weight: bold;
 }
 
 

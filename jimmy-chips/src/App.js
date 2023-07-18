@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <div className='appContainer'>
-        <img src='/assets/westwoods-3.jpg' alt='westwoods-golf-club'></img>
+        {/* <img src='westwoods-3.jpg' alt='westwoods-golf-club'></img> */}
       <section className='titleContainer'>
         <h1 className="title">Jimmy Chips</h1>
       </section>

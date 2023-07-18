@@ -22,13 +22,13 @@ const Homepage = () => {
             </button>
             <button className="playButton" onClick={startPlay}> Play!</button>
         </section>
-        <section className='fillerContainer'>
+        {/* <section className='fillerContainer'>
             <div className="wrapper">
                 <div className="ball"> 
                     <div className="texture"></div>  
                 </div>
             </div>
-        </section>
+        </section> */}
     </div>
   );
 }
