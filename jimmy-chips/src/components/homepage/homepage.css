@@ -1,5 +1,5 @@
 .instructionsContainer {
-    /* font-family: 'Lora'; */
+    font-family: 'Lora';
     margin: 50px;
     margin-bottom: auto;
 }
@@ -38,56 +38,8 @@
     flex-direction: column;
 }
 
-.fillerContainer {
-  min-height: 50vh;
-  margin-top: 25px;
-}
 
-.wrapper {
-  position: fixed;
-  top: 75%;
-  left: 43%;
-}
-.ball {
-  width:200px;
-  height:200px;
-  position:absolute;
-  border-radius:50%;
-  overflow:hidden;
-  box-shadow: -5px -5x 5px red;
-  left:25%;
-  top:25%;
-  box-shadow: -3px 3px 15px rgba(0,0,0,0.35), 0px 0px 100px rgba(0,0,0,0.25), 0px 0px 5px rgba(255,255,255,0.5);
-  z-index: 1;
-}
 
-.ball:before {
-  position: absolute;
-  content: '';
-  height: 100%;
-  width: 100%;
-  background-image: linear-gradient(transparent 0%, rgba(0,0,0,0.2) 50%);
-  transform: rotate(-125deg);
-}
-
-.texture{
-  position: relative;
-  animation: translateBackground 40s infinite linear;  
-  background:url(http://thumbs.dreamstime.com/x/golf-ball-texture-17926947.jpg) 0% 0 repeat-x;
-  width:200px;
-  height:200px;
-  position:absolute;
-  border-radius:50%;
-}
-
-@keyframes translateBackground{
-  0%{
-    background-position-x:0;
-  }
-  100%{
-    background-position-x:-600px;
-  }
-}
 
 @media only screen 
 and (max-width: 390px)  {
@@ -111,122 +63,7 @@ and (max-width: 390px)  {
         min-height:30px; 
         min-width: 120px;
     }
-    .fillerContainer {
-        min-height: 50vh;
-        margin-top: 25px;
-    }
-
-    .wrapper {
-        position: fixed;
-        top: 70%;
-        left: 25%;
-      }
-      .ball {
-        width:200px;
-        height:200px;
-        position:absolute;
-        border-radius:50%;
-        overflow:hidden;
-        box-shadow: -5px -5x 5px red;
-        left:25%;
-        top:25%;
-        box-shadow: -3px 3px 15px rgba(0,0,0,0.35), 0px 0px 100px rgba(0,0,0,0.25), 0px 0px 5px rgba(255,255,255,0.5);
-        z-index: 1;
-      }
       
-      .ball:before {
-        position: absolute;
-        content: '';
-        height: 100%;
-        width: 100%;
-        background-image: linear-gradient(transparent 0%, rgba(0,0,0,0.2) 50%);
-        transform: rotate(-125deg);
-      }
-      
-      /* .tee {
-        position: relative;
-        top: 100%;
-      }
-      
-      .tee .top {
-        margin-top: 197px;
-        position: absolute;
-        z-index: 2;
-        margin-left: 70px;
-        width: 0; 
-          height: 0; 
-          border-left: 30px solid transparent;
-          border-right: 30px solid transparent;
-          border-top: 26px solid grey;
-        border-radius: 15px;
-      }
-      
-      .stem {
-        background-color: grey;
-        height: 15em;
-        position: absolute;
-        top: 140px;
-        width: 20px;
-        margin-left: 90px;
-      }
-      
-      .stem:after {
-        content: '';
-        width: 0;
-        height: 0;
-        border-left: 11px solid transparent;
-        border-right: 12px solid transparent;
-        border-top: 12px solid grey;
-        border-radius: 16px;
-        position: absolute;
-        top: 239px;
-        margin-left: -1px;
-      } */
-      
-      .texture{
-        position: relative;
-        animation: translateBackground 40s infinite linear;  
-        background:url(http://thumbs.dreamstime.com/x/golf-ball-texture-17926947.jpg) 0% 0 repeat-x;
-        width:200px;
-        height:200px;
-        position:absolute;
-        border-radius:50%;
-      }
-      
-      @keyframes translateBackground{
-        0%{
-          background-position-x:0;
-        }
-        100%{
-          background-position-x:-600px;
-        }
-      }
 }
 
-@media only screen 
-and (max-width: 1000px)  {
-  .wrapper {
-    left: 40%;
-  }
-}
 
-@media only screen 
-and (max-width: 675px)  {
-  .wrapper {
-    left: 35%;
-  }
-}
-
-@media only screen 
-and (max-width: 525px)  {
-  .wrapper {
-    left: 24%;
-  }
-}
-
-/* @media only screen 
-and (max-width: 400px)  {
-  .wrapper {
-    left: 26%;
-  }
-} */
