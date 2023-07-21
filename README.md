@@ -10,19 +10,19 @@ At the end of the round, a chip total for each player is displayed along with wh
 
 ## Screenshots
 ### Homepage:
-<img src="./src/assets/homepage-screenshot.png" alt="homepage screenshot" width="600">
+<img src="./jimmy-chips/src/assets/homepage-screenshot.png" alt="homepage screenshot" width="600">
 
 ### Instructions: 
-<img src="./src/assets/homepage-instructions.png" alt="homepage instructions screenshot" width="600">
+<img src="./jimmy-chips/src/assets/homepage-instructions.png" alt="homepage instructions screenshot" width="600">
 
 ### Setup:
-<img src="./src/assets/setup-screenshot.png" alt="player setup screenshot" width="600">
+<img src="./jimmy-chips/src/assets/setup-screenshot.png" alt="player setup screenshot" width="600">
 
 ### Chips:
-<img src="./src/assets/chips-screenshot.png" alt="chips screenshot" width="600">
+<img src="./jimmy-chips/src/assets/chips-screenshot.png" alt="chips screenshot" width="600">
 
 ### Finish Page: 
-<img src="./src/assets/finishpage-screenshot.png" alt="finish page screenshot" width="600">
+<img src="./jimmy-chips/src/assets/finishpage-screenshot.png" alt="finish page screenshot" width="600">
 
 
 ## Future Iterations
