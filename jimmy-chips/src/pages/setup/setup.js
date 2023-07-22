@@ -74,7 +74,7 @@ const Setup = () => {
                 id='playerName'
                 name='playerName'
                 value={value}
-                onChange={(e) => setValue(e.target.value)}
+                onChange={(e) => setValue(e.target.value.trim())}
                 />
         </div>
         <button className='submit' type='submit' onClick={handleSubmit}>Submit</button>
