@@ -30,3 +30,4 @@ In upcoming iterations, I intend to incorporate the following:
 - Player scoring
 - Backend database to store game results and player information
 - Sockets so that multiple people can interact with the application at the same time
+- Making more chips available and allowing players to select which chips they want to play with
