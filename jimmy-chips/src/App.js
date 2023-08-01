@@ -6,6 +6,7 @@ import Setup from './pages/setup/setup';
 import NineHole from './pages/nineHole/nineHole';
 import EighteenHole from './pages/eighteenHole/eighteenHole';
 import ChipsAssignment from './pages/chipsAssignment/chipsAssignment';
+import ChipSelection from './pages/chipSelection/chipSelection';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/setup" element= { <Setup /> } />
           <Route path='/nine-holes' element= { <NineHole /> } />
           <Route path='/eighteen-holes' element= { <EighteenHole /> } />
+          <Route path='/select-chips' element={ <ChipSelection /> } />
           <Route path='/assign-chips/:id' element={ <ChipsAssignment /> } />
           <Route path='/finished-round' element={ <FinishPage /> } />
       </Routes>

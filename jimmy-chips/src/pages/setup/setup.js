@@ -63,6 +63,10 @@ const Setup = () => {
         navigate("/eighteen-holes")
     }
 
+    const selectPlayableChips = () => {
+        navigate("/select-chips")
+    }
+
   return (
     <div className="setup">
         <p className='playersInput'>Add players here:</p>
@@ -82,6 +86,7 @@ const Setup = () => {
      <div className='playersContainer'>
         {displayPlayers}
      </div>
+     <button className='chipSelectionButton' onClick={selectPlayableChips}>Select Chips</button>
      <div className='buttonsContainer'>
         <button className='nineHoleButton' onClick={playNine}>Play Nine Holes</button>
         <button className='eighteenHoleButton' onClick={playEighteen}>Play Eighteen Holes</button>

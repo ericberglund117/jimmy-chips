@@ -1,9 +1,9 @@
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useLocalStorage, getStorageValue} from '../../useLocalStorage';
-import './chipsAssignment.css';
+import './chipSelection.css';
 
-const ChipsAssignment = () => { 
+const ChipSelection = () => { 
     const { pathname } = useLocation()
     const navigate = useNavigate()
     const allChips = [
@@ -50,39 +50,38 @@ const ChipsAssignment = () => {
         'Longest Drive', 
         'Closest To The Pin'
     ]
-    const chosenChips = []
+    
     const [currentPlayers, setCurrentPlayers] = useState([])
-    const [currentHoleCount, setCurrentHoleCount] = useState(0)
+    const [selectedChips, setSelectedChips] = useState([])
     let pathCheck 
     const playerNameForChips = pathname.split("/")
 
     useEffect(() => {
-        const [...currentStoredPlayers] = getStorageValue('allPlayers')
-        setCurrentPlayers([...currentStoredPlayers])
-    }, [])
+        console.log(selectedChips)
+    }, [selectedChips])
 
 
-    const setChipValue = (selectedChip) => {
-       const check = allChips.filter(chip => chip === selectedChip)
-       const correctPlayer = currentPlayers.find(player => player.name === playerNameForChips[2])
-       if (correctPlayer.chips.length === 0) {
-            correctPlayer.chips.push(check)
+    const setChipValue = (chosenChip) => {
+        const chosenChips = [...selectedChips]
+        console.log('chosen', chosenChip)
+       const check = allChips.filter(chip => chip === chosenChip)
+       if (chosenChips.length === 0) {
+        chosenChips.push(check)
+        setSelectedChips(chosenChips)
+        console.log("1", selectedChips)
        } else {
-            const updatedChips = flatten([...correctPlayer.chips, check])
-            correctPlayer.chips = [...new Set(updatedChips)]
+           const updatedSelectedChips = flatten([...selectedChips, check])
+           console.log('updated', updatedSelectedChips)
+           setSelectedChips(updatedSelectedChips)
+           console.log(updatedSelectedChips)
        }
-       const updatedChipsCurrentPlayers = currentPlayers
-    //    let eighteenUpdatedPlayers = updatedChipsCurrentPlayers.map(player => {
-    //     player.full = true
-    //     return player
-       updatePlayersAfterChips(updatedChipsCurrentPlayers)
     }
 
-    const updatePlayersAfterChips = (updatedPlayers) => {
-        console.log("upChips", updatedPlayers)
-        console.log(updatedPlayers)
-        localStorage.setItem("allPlayers", JSON.stringify(updatedPlayers))
-    }
+    // const updatePlayersAfterChips = (updatedPlayers) => {
+    //     console.log("upChips", updatedPlayers)
+    //     console.log(updatedPlayers)
+    //     localStorage.setItem("selectedChips", JSON.stringify(selectedChips))
+    // }
 
     function flatten(arr) {
         return arr.reduce(function (flat, toFlatten) {
@@ -102,20 +101,18 @@ const ChipsAssignment = () => {
     }
 
     const checkChips = () => {
-        let currentChips = flatten(currentPlayers.map(player => player.chips))
-        const updatedChipsArr = allChips.filter(chip => !currentChips.includes(chip))
-        return updatedChipsArr.map((chip, index) => {
+        return allChips.map((chip, index) => {
             return (
                 <section className='chipContainer'>
                     <p className="specificPosChip" key={index}>{chip}</p>
-                    <button className='assignChip' onClick={() => setChipValue(chip)} key={chip}>Assign Chip</button>
+                    <button className='assignChip' onClick={() => setChipValue(chip)} key={chip}>Select Chip</button>
                 </section>
             )
         })
     }
 
   return (
-    <div className="assignChipsContainer">
+    <div className="selectChipsContainer">
         <section className='navBackContainer'>
             <button className='navBack' onClick={navigateBack}>Back</button>
         </section>
@@ -128,4 +125,4 @@ const ChipsAssignment = () => {
   );
 }
 
-export default ChipsAssignment;
+export default ChipSelection;
