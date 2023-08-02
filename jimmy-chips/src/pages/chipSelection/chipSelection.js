@@ -51,37 +51,33 @@ const ChipSelection = () => {
         'Closest To The Pin'
     ]
     
-    const [currentPlayers, setCurrentPlayers] = useState([])
     const [selectedChips, setSelectedChips] = useState([])
     let pathCheck 
     const playerNameForChips = pathname.split("/")
 
     useEffect(() => {
         console.log(selectedChips)
+        updateSelectedChips()
     }, [selectedChips])
 
 
-    const setChipValue = (chosenChip) => {
+    const selectChipValue = (chosenChip) => {
         const chosenChips = [...selectedChips]
-        console.log('chosen', chosenChip)
        const check = allChips.filter(chip => chip === chosenChip)
        if (chosenChips.length === 0) {
         chosenChips.push(check)
         setSelectedChips(chosenChips)
-        console.log("1", selectedChips)
        } else {
            const updatedSelectedChips = flatten([...selectedChips, check])
-           console.log('updated', updatedSelectedChips)
            setSelectedChips(updatedSelectedChips)
-           console.log(updatedSelectedChips)
        }
     }
 
-    // const updatePlayersAfterChips = (updatedPlayers) => {
-    //     console.log("upChips", updatedPlayers)
-    //     console.log(updatedPlayers)
-    //     localStorage.setItem("selectedChips", JSON.stringify(selectedChips))
-    // }
+    const updateSelectedChips = () => {
+        localStorage.setItem('selectedChips', JSON.stringify(selectedChips))
+        const check = getStorageValue('selectedChips')
+        console.log(check)
+    }
 
     function flatten(arr) {
         return arr.reduce(function (flat, toFlatten) {
@@ -91,13 +87,7 @@ const ChipSelection = () => {
 
 
     const navigateBack = () => {
-        let result = currentPlayers.map(player => {
-            player.full === true ? pathCheck = true : pathCheck = false;
-            return pathCheck
-        })
-        !result[0] ?
-        navigate('/nine-holes') :
-        navigate('/eighteen-holes')
+        navigate('/setup')
     }
 
     const checkChips = () => {
@@ -105,7 +95,7 @@ const ChipSelection = () => {
             return (
                 <section className='chipContainer'>
                     <p className="specificPosChip" key={index}>{chip}</p>
-                    <button className='assignChip' onClick={() => setChipValue(chip)} key={chip}>Select Chip</button>
+                    <button className='assignChip' onClick={() => selectChipValue(chip)} key={chip}>Select Chip</button>
                 </section>
             )
         })

@@ -2,12 +2,14 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './setup.css';
+import { getStorageValue } from '../../useLocalStorage';
 
 
 const Setup = () => {
     const [value, setValue] = useState('')
     const [playerObject, setPlayerObject] = useState({})
     const [allPlayers, setAllPlayers] = useState([])
+    const [selectedGameChips, setSelectedGameChips] = useState([])
     const navigate = useNavigate()
 
     const handleSubmit = (e) => {
@@ -48,12 +50,21 @@ const Setup = () => {
             localStorage.setItem("allPlayers", JSON.stringify(allPlayers))
         }
         console.log("use", allPlayers)
+        const [...selectedGameChips] = getStorageValue('selectedChips')
+        setSelectedGameChips([...selectedGameChips])
+        console.log('chips', selectedGameChips)
     }, [allPlayers])
 
     const displayPlayers = allPlayers.length > 0 ? allPlayers.map((player, index) => 
         <div className='addedPlayer' key={index}>
          <p className='addedPlayerName'>{player.name}</p>
         </div>) : null
+
+    const displayGameChips = selectedGameChips.length > 0 ? selectedGameChips.map((chip, index) =>
+        <section className='chipContainer'>
+                    <p className="specificPosChip" key={index}>{chip}</p>
+                    {/* <button className='assignChip' onClick={() => setChipValue(chip)} key={chip}>Assign Chip</button> */}
+                </section>) : null
 
     const playNine = () => {
         navigate("/nine-holes")
@@ -87,6 +98,7 @@ const Setup = () => {
         {displayPlayers}
      </div>
      <button className='chipSelectionButton' onClick={selectPlayableChips}>Select Chips</button>
+     {displayGameChips}
      <div className='buttonsContainer'>
         <button className='nineHoleButton' onClick={playNine}>Play Nine Holes</button>
         <button className='eighteenHoleButton' onClick={playEighteen}>Play Eighteen Holes</button>
