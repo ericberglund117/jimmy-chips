@@ -50,15 +50,18 @@ const ChipsAssignment = () => {
         'Longest Drive', 
         'Closest To The Pin'
     ]
-    const chosenChips = []
     const [currentPlayers, setCurrentPlayers] = useState([])
     const [currentHoleCount, setCurrentHoleCount] = useState(0)
+    const [selectedGameChips, setSelectedGameChips] = useState([])
     let pathCheck 
     const playerNameForChips = pathname.split("/")
 
     useEffect(() => {
         const [...currentStoredPlayers] = getStorageValue('allPlayers')
         setCurrentPlayers([...currentStoredPlayers])
+        const [...selectedGameChips] = getStorageValue('selectedChips')
+        setSelectedGameChips([...selectedGameChips])
+        console.log('chips', selectedGameChips)
     }, [])
 
 
@@ -103,7 +106,7 @@ const ChipsAssignment = () => {
 
     const checkChips = () => {
         let currentChips = flatten(currentPlayers.map(player => player.chips))
-        const updatedChipsArr = allChips.filter(chip => !currentChips.includes(chip))
+        const updatedChipsArr = selectedGameChips.filter(chip => !currentChips.includes(chip))
         return updatedChipsArr.map((chip, index) => {
             return (
                 <section className='chipContainer'>
