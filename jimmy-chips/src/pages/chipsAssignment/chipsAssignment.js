@@ -62,6 +62,7 @@ const ChipsAssignment = () => {
         const [...selectedGameChips] = getStorageValue('selectedChips')
         setSelectedGameChips([...selectedGameChips])
         console.log('chips', selectedGameChips)
+        console.log("chip ass", currentStoredPlayers)
     }, [])
 
 

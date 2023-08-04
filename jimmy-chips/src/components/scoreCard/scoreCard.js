@@ -17,7 +17,7 @@ const ScoreCard = (props) => {
     // const [twoScoreInput, setTwoScoreInput] = useState('')
     // const [threeScoreInput, setThreeScoreInput] = useState('')
     // const [fourScoreInput, setFourScoreInput] = useState('')
-    const [currentPlayers, setCurrentPlayers] = useState(propsCurrentPlayers)
+    const [currentPlayers, setCurrentPlayers] = useState([])
     const navigate = useNavigate()
     const { pathname } = useLocation()
     const holesPath = pathname.split("/")
@@ -37,23 +37,21 @@ const ScoreCard = (props) => {
     //  }    
     // }, [holesCount.length])
 
-    console.log(currentPlayers)
     // useEffect(() => {
-    //     const [...storedPlayers] = getStorageValue('allPlayers')
-    //     storedPlayers.map(player => setCount(player.holesCount))
-    // },[])
-
-    useEffect(() => {
-        const [...currentStoredPlayers] = getStorageValue('allPlayers')
-        setCurrentPlayers([...currentStoredPlayers])
-    },[])
-
+        //     const [...storedPlayers] = getStorageValue('allPlayers')
+        //     storedPlayers.map(player => setCount(player.holesCount))
+        // },[])
+        
+        useEffect(() => {
+            setCurrentPlayers(propsCurrentPlayers)
+        },[propsCurrentPlayers])
+        console.log(currentPlayers)
+        
     const navigateToChips = (e) => {
         // e.preventDefault()
         if (eighteenHolesCheck) {
             setPlayersToEighteen()
         }
-        console.log('9')
         navigate('/assign-chips/:id')
     }
 

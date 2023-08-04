@@ -13,7 +13,8 @@ const EighteenHole = () => {
         useEffect(() => {
             const [...currentStoredPlayers] = getStorageValue('allPlayers')
             setCurrentPlayers([...currentStoredPlayers])
-
+            const [...currentSelectedChips] = getStorageValue('selectedChips')
+            console.log(currentSelectedChips)
         }, [])
 
     const navigateBack = () => {
@@ -22,8 +23,15 @@ const EighteenHole = () => {
 
     const removeChipsButton = (chip, playerName) => {
         const correctPlayer = currentPlayers.find(player => player.name === playerName)
-        const chipIndex = correctPlayer.chips.indexOf(chip)
-        correctPlayer.chips.splice(chipIndex, 1)
+        const chipPlayerIndex = correctPlayer.chips.indexOf(chip)
+        correctPlayer.chips.splice(chipPlayerIndex, 1)
+        console.log(correctPlayer)
+        currentPlayers.forEach(player => {
+            if (player.name === correctPlayer.name) {
+                player.chips = correctPlayer.chips
+            }
+        })
+        console.log(currentPlayers)
         setCurrentPlayers([...currentPlayers])
         localStorage.setItem('allPlayers', JSON.stringify(currentPlayers))
     }
