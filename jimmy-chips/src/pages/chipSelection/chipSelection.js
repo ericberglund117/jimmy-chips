@@ -107,7 +107,9 @@ const ChipSelection = () => {
             <button className='navBack' onClick={navigateBack}>Back</button>
         </section>
         <h2>Chips</h2>
-        {checkChips()}
+        <section className='selectedChips'>
+            {checkChips()}
+        </section>
         {/* <Link to={pathCheck ? '/nine-holes' : '/eighteen-holes'}> */}
             
          {/* </Link> */}

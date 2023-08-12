@@ -98,7 +98,9 @@ const Setup = () => {
         {displayPlayers}
      </div>
      <button className='chipSelectionButton' onClick={selectPlayableChips}>Select Chips</button>
-     {displayGameChips}
+     <section className='selectedChips'>
+        {displayGameChips}
+     </section>
      <div className='buttonsContainer'>
         <button className='nineHoleButton' onClick={playNine}>Play Nine Holes</button>
         <button className='eighteenHoleButton' onClick={playEighteen}>Play Eighteen Holes</button>

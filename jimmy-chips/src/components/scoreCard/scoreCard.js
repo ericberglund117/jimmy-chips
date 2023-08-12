@@ -36,11 +36,6 @@ const ScoreCard = (props) => {
         
     //  }    
     // }, [holesCount.length])
-
-    // useEffect(() => {
-        //     const [...storedPlayers] = getStorageValue('allPlayers')
-        //     storedPlayers.map(player => setCount(player.holesCount))
-        // },[])
         
         useEffect(() => {
             setCurrentPlayers(propsCurrentPlayers)
