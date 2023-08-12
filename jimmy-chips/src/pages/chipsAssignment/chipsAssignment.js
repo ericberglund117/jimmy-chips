@@ -9,23 +9,60 @@ const ChipsAssignment = () => {
     const allChips = [
         'Par',
         'Sandy Par',
+        'Birdie',
+        'One Putt',
+        'Eagle',
+        'Chip In',
+        'Longest Drive', 
+        'Closest To The Pin',
         'Out of Bounds',
         'Water',
         'Tree',
-        'Birdie',
+        'Sand',
         'Gravedigger',
-        'One Putt',
         'Beer Chip',
-        'Snowman'
+        'Snowman',
+        'Lost Ball',
+        'Club Toss',
+        'Three Putt', 
+        'Front Tees'
+    ]
+    const negChips = [
+        'Out of Bounds',
+        'Water',
+        'Tree',
+        'Sand',
+        'Gravedigger',
+        'Beer Chip',
+        'Snowman',
+        'Lost Ball',
+        'Club Toss',
+        'Three Putt', 
+        'Front Tees'
+    ]
+    const posChips = [
+        'Par',
+        'Sandy Par',
+        'Birdie',
+        'One Putt',
+        'Eagle',
+        'Chip In',
+        'Longest Drive', 
+        'Closest To The Pin'
     ]
     const [currentPlayers, setCurrentPlayers] = useState([])
     const [currentHoleCount, setCurrentHoleCount] = useState(0)
+    const [selectedGameChips, setSelectedGameChips] = useState([])
     let pathCheck 
     const playerNameForChips = pathname.split("/")
 
     useEffect(() => {
         const [...currentStoredPlayers] = getStorageValue('allPlayers')
         setCurrentPlayers([...currentStoredPlayers])
+        const [...selectedGameChips] = getStorageValue('selectedChips')
+        setSelectedGameChips([...selectedGameChips])
+        console.log('chips', selectedGameChips)
+        console.log("chip ass", currentStoredPlayers)
     }, [])
 
 
@@ -70,7 +107,7 @@ const ChipsAssignment = () => {
 
     const checkChips = () => {
         let currentChips = flatten(currentPlayers.map(player => player.chips))
-        const updatedChipsArr = allChips.filter(chip => !currentChips.includes(chip))
+        const updatedChipsArr = selectedGameChips.filter(chip => !currentChips.includes(chip))
         return updatedChipsArr.map((chip, index) => {
             return (
                 <section className='chipContainer'>
