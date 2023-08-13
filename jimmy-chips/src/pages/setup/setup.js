@@ -52,7 +52,6 @@ const Setup = () => {
         console.log("use", allPlayers)
         const [...selectedGameChips] = getStorageValue('selectedChips')
         setSelectedGameChips([...selectedGameChips])
-        console.log('chips', selectedGameChips)
     }, [allPlayers])
 
     const displayPlayers = allPlayers.length > 0 ? allPlayers.map((player, index) => 
