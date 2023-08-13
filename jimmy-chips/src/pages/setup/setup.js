@@ -50,12 +50,14 @@ const Setup = () => {
             localStorage.setItem("allPlayers", JSON.stringify(allPlayers))
         }
         console.log("use", allPlayers)
-        if(selectedGameChips.length > 0){ 
-            const [...selectedGameChips] = getStorageValue('selectedChips')
-            setSelectedGameChips([...selectedGameChips])
-        }
-    }, [allPlayers, selectedGameChips])
+        displaySelectedGameChips()
+    }, [allPlayers])
 
+    const displaySelectedGameChips = () => {
+        const [...selectedGameChips] = getStorageValue('selectedChips')
+        setSelectedGameChips([...selectedGameChips])
+        console.log(selectedGameChips)
+    }
     const displayPlayers = allPlayers.length > 0 ? allPlayers.map((player, index) => 
         <div className='addedPlayer' key={index}>
          <p className='addedPlayerName'>{player.name}</p>
