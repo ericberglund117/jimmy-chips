@@ -10,6 +10,7 @@ const Setup = () => {
     const [playerObject, setPlayerObject] = useState({})
     const [allPlayers, setAllPlayers] = useState([])
     const [selectedGameChips, setSelectedGameChips] = useState([])
+    const [chipsCheck, setChipsCheck] = useState(false)
     const navigate = useNavigate()
 
     const handleSubmit = (e) => {
@@ -50,14 +51,16 @@ const Setup = () => {
             localStorage.setItem("allPlayers", JSON.stringify(allPlayers))
         }
         console.log("use", allPlayers)
-        displaySelectedGameChips()
     }, [allPlayers])
 
-    const displaySelectedGameChips = () => {
-        const [...selectedGameChips] = getStorageValue('selectedChips')
-        setSelectedGameChips([...selectedGameChips])
+    useEffect(() => {
+        if(getStorageValue('selectedChips') != null) {
+            const [...selectedGameChips] = getStorageValue('selectedChips')
+            setSelectedGameChips([...selectedGameChips])
+        }
         console.log(selectedGameChips)
-    }
+    }, [])
+
     const displayPlayers = allPlayers.length > 0 ? allPlayers.map((player, index) => 
         <div className='addedPlayer' key={index}>
          <p className='addedPlayerName'>{player.name}</p>
@@ -78,6 +81,9 @@ const Setup = () => {
     }
 
     const selectPlayableChips = () => {
+        localStorage.setItem('selectedChips', JSON.stringify(selectedGameChips))
+        const check = getStorageValue('selectedChips')
+        console.log(check)
         navigate("/select-chips")
     }
 
