@@ -52,8 +52,6 @@ const ChipSelection = () => {
     ]
     
     const [selectedChips, setSelectedChips] = useState([])
-    let pathCheck 
-    const playerNameForChips = pathname.split("/")
 
     useEffect(() => {
         console.log(selectedChips)
