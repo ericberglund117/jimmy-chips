@@ -18,9 +18,7 @@ const Homepage = () => {
         </section>
         <section className='homepageButtons'>
             <button className="howToPlayButton" onClick={() => setShowInstructions(!showInstructions)}>
-               <p>
                {showInstructions === true ? "Hide Instructions" : "How To Play"}
-               </p> 
             </button>
             <button className="playButton" onClick={startPlay}> Play!</button>
         </section> 
