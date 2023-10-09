@@ -52,8 +52,6 @@ const ChipSelection = () => {
     ]
     
     const [selectedChips, setSelectedChips] = useState([])
-    let pathCheck 
-    const playerNameForChips = pathname.split("/")
 
     useEffect(() => {
         console.log(selectedChips)
@@ -61,16 +59,25 @@ const ChipSelection = () => {
     }, [selectedChips])
 
 
-    const selectChipValue = (chosenChip) => {
+    const selectChipValue = (chosenChip, e) => {
+        let target = e.target;
+        let status = e.target.classList.contains('active')
+        e.target.classList.add(status ? 'inactive' : 'active')
+        e.target.classList.remove(status ? 'active' : 'inactive')
         const chosenChips = [...selectedChips]
        const check = allChips.filter(chip => chip === chosenChip)
        if (chosenChips.length === 0) {
         chosenChips.push(check)
         setSelectedChips(chosenChips)
+        setChipColor(e)
        } else {
            const updatedSelectedChips = flatten([...selectedChips, check])
            setSelectedChips(updatedSelectedChips)
        }
+    }
+
+    const setChipColor = (e) => {
+        
     }
 
     const updateSelectedChips = () => {
@@ -95,7 +102,7 @@ const ChipSelection = () => {
             return (
                 <section className='chipContainer'>
                     <p className="specificPosChip" key={index}>{chip}</p>
-                    <button className='assignChip' onClick={() => selectChipValue(chip)} key={chip}>Select Chip</button>
+                    <button className='assignChip' onClick={(e) => selectChipValue(chip, e)} key={chip}>Select Chip</button>
                 </section>
             )
         })

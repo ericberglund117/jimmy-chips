@@ -10,7 +10,6 @@ const Setup = () => {
     const [playerObject, setPlayerObject] = useState({})
     const [allPlayers, setAllPlayers] = useState([])
     const [selectedGameChips, setSelectedGameChips] = useState([])
-    const [chipsCheck, setChipsCheck] = useState(false)
     const navigate = useNavigate()
 
     const handleSubmit = (e) => {
@@ -58,7 +57,7 @@ const Setup = () => {
             const [...selectedGameChips] = getStorageValue('selectedChips')
             setSelectedGameChips([...selectedGameChips])
         }
-        console.log(selectedGameChips)
+        console.log("select chip", selectedGameChips)
     }, [])
 
     const displayPlayers = allPlayers.length > 0 ? allPlayers.map((player, index) => 
@@ -81,15 +80,17 @@ const Setup = () => {
     }
 
     const selectPlayableChips = () => {
-        localStorage.setItem('selectedChips', JSON.stringify(selectedGameChips))
-        const check = getStorageValue('selectedChips')
-        console.log(check)
         navigate("/select-chips")
     }
 
   return (
     <div className="setup">
-        <p className='playersInput'>Add players here:</p>
+        <p className='selectChipInstruct'>1. Select The Chips You Want To Play With</p>
+        <button className='chipSelectionButton' onClick={selectPlayableChips}>Select Chips</button>
+        <section className='selectedChips'>
+            {displayGameChips}
+        </section>
+        <p className='playersInput'>2. Add Players Here:</p>
      <form className='playerForm'>
         <div className='form-control'>
             <label htmlFor='playerName'>Name: </label>
@@ -106,10 +107,6 @@ const Setup = () => {
      <div className='playersContainer'>
         {displayPlayers}
      </div>
-     <button className='chipSelectionButton' onClick={selectPlayableChips}>Select Chips</button>
-     <section className='selectedChips'>
-        {displayGameChips}
-     </section>
      <div className='buttonsContainer'>
         <button className='nineHoleButton' onClick={playNine}>Play Nine Holes</button>
         <button className='eighteenHoleButton' onClick={playEighteen}>Play Eighteen Holes</button>

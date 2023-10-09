@@ -5,7 +5,7 @@
     padding-bottom: 10px;
 }
 
-.playersInput {
+p {
     font-family: 'Lora';
     color: #283618;
 }
@@ -52,6 +52,16 @@
 }
 
 .eighteenHoleButton {
+    background-color: #283618;
+    color: #fefae0 ;
+    border-radius:10px;
+        box-shadow: 0px 0px 2px 2px rgb(0,0,0);
+        min-height:fit-content;
+        min-width: fit-content;
+        margin-left: 10px;
+}
+
+.chipSelectionButton {
     background-color: #283618;
     color: #fefae0 ;
     border-radius:10px;
