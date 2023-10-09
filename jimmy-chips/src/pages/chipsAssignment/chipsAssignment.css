@@ -9,6 +9,14 @@
      align-self: center;
      cursor: pointer;
 }
+
+.assignChip.active {
+     background-color: #606C38;
+}
+
+.assignChip.inactive {
+     background-color: #283618;
+}
  
 .assignChip:hover:before {
      background-color: #606C38;
