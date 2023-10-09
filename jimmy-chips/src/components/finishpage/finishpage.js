@@ -6,20 +6,29 @@ import { useLocalStorage, getStorageValue} from '../../useLocalStorage';
 const FinishPage = () => {
     const [currentPlayers, setCurrentPlayers] = useState([])
     const navigate = useNavigate()
-    const positiveChips = [
-        'Par',
-        'Sandy Par',
-        'Birdie',
-        'One Putt',
-    ]
-    const negativeChips = [
-        'Out of Bounds',
-        'Water',
-        'Tree',
-        'Gravedigger',
-        'Beer Chip',
-        'Snowman'
-    ]
+    const negChips = [
+      'Out of Bounds',
+      'Water',
+      'Tree',
+      'Sand',
+      'Gravedigger',
+      'Beer Chip',
+      'Snowman',
+      'Lost Ball',
+      'Club Toss',
+      'Three Putt', 
+      'Front Tees'
+  ]
+  const posChips = [
+      'Par',
+      'Sandy Par',
+      'Birdie',
+      'One Putt',
+      'Eagle',
+      'Chip In',
+      'Longest Drive', 
+      'Closest To The Pin'
+  ]
     
         useEffect(() => {
             const [...currentStoredPlayers] = getStorageValue('allPlayers')
@@ -73,13 +82,11 @@ const FinishPage = () => {
                       player.chipsScore = 0
                     } else {
                       endChips.forEach(chip => {
-                        if (Array.isArray(chip)) {
-                          console.log(chip)
-                          chip.forEach(single => {
-                            positiveChips.includes(single) ? endCount += 1 : endCount -= 1;
-                          })
+                        console.log(chip)
+                        if(posChips.includes(chip)) {
+                          endCount += 1
                         } else {
-                          positiveChips.includes(chip) ? endCount += 1 : endCount -= 1;
+                          endCount -= 1
                         }
                       })
                       player.chipsScore = endCount
