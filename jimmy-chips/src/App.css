@@ -2,10 +2,20 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.appOverlay {
   min-height: 100vh;
   background: url("./assets/westwoods3.jpg") no-repeat;
+  filter: brightness(30%);
   background-size: cover;
   background-position: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
 .appContainer {
@@ -18,6 +28,7 @@
   margin-top: 30px;
   border-radius: 12%;
   margin-bottom: 30px;
+  z-index: 10;
 }
 
 body {
