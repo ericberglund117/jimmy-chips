@@ -98,7 +98,7 @@ const ChipSelection = () => {
     }
 
     const checkChips = () => {
-        return allChips.map((chip, index) => {
+        const positiveChips = posChips.map((chip, index) => {
             return (
                 <section className='chipContainer'>
                     <p className="specificPosChip" key={index}>{chip}</p>
@@ -106,6 +106,19 @@ const ChipSelection = () => {
                 </section>
             )
         })
+        const negativeChips = negChips.map((chip, index) => {
+            return (
+                <section className='chipContainer'>
+                    <p className="specificNegChip" key={index}>{chip}</p>
+                    <button className='assignChip' onClick={(e) => selectChipValue(chip, e)} key={chip}>Select Chip</button>
+                </section>
+            )
+        })
+        return (
+            <section className='allChipContainer'>
+                {[positiveChips, negativeChips]}
+            </section>
+        )
     }
 
   return (

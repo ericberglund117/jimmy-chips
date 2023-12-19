@@ -1,13 +1,11 @@
 .instructionsContainer {
     font-family: 'Lora';
-    margin: 50px;
     margin-bottom: auto;
 }
 
 .homepageButtons {
     display: flex;
     justify-content: space-evenly;
-    margin-top: 50px;
     z-index: 1;
     /* position: fixed; */
 }
@@ -32,11 +30,6 @@
     margin: 15px;
 }
 
-.homepage {
-    /* min-height: 70vh; */
-    display: flex;
-    flex-direction: column;
-}
 
 
 

@@ -12,10 +12,10 @@ function App() {
   return (
     <div className="App">
       <div className='appOverlay'></div>
-      <div className='appContainer'>
       <section className='titleContainer'>
         <h1 className="title">Jimmy Chips</h1>
       </section>
+      <div className='appContainer'>
       <Routes>
           <Route path="/" element= { <Homepage /> } />
           <Route path="/setup" element= { <Setup /> } />
