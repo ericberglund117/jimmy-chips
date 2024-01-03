@@ -19,16 +19,9 @@
 }
 
 .appContainer {
-  background: rgba(254, 250, 224, .7);
-  display: flex;
-  flex-direction: column;
   width: fit-content;
   height: fit-content;
-  padding: 20px;
   align-self: center;
-  margin-top: 30px;
-  border-radius: 12%;
-  margin-bottom: 30px;
   z-index: 10;
 }
 
@@ -53,6 +46,7 @@ h1 {
 h2 {
   font-family: 'Lora';
   text-decoration: underline;
+  color: white;
 }
 
 h3 {

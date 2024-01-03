@@ -60,7 +60,7 @@ const ChipSelection = () => {
 
 
     const selectChipValue = (chosenChip, e) => {
-        let target = e.target;
+        // let target = e.target;
         let status = e.target.classList.contains('active')
         e.target.classList.add(status ? 'inactive' : 'active')
         e.target.classList.remove(status ? 'active' : 'inactive')
@@ -102,7 +102,7 @@ const ChipSelection = () => {
             return (
                 <section className='chipContainer'>
                     <p className="specificPosChip" key={index}>{chip}</p>
-                    <button className='assignChip' onClick={(e) => selectChipValue(chip, e)} key={chip}>Select Chip</button>
+                    <button className='assignPosChip' onClick={(e) => selectChipValue(chip, e)} key={chip}>Select Chip</button>
                 </section>
             )
         })
@@ -110,7 +110,7 @@ const ChipSelection = () => {
             return (
                 <section className='chipContainer'>
                     <p className="specificNegChip" key={index}>{chip}</p>
-                    <button className='assignChip' onClick={(e) => selectChipValue(chip, e)} key={chip}>Select Chip</button>
+                    <button className='assignNegChip' onClick={(e) => selectChipValue(chip, e)} key={chip}>Select Chip</button>
                 </section>
             )
         })

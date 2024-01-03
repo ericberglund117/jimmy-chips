@@ -1,5 +1,5 @@
-.assignChip {
-     background-color: #283618;
+.assignPosChip {
+     background-color: rgba(254, 250, 224, .7);;
      color: #fefae0 ;
      font-family: 'Lora';
      border-radius:10px;
@@ -10,22 +10,34 @@
      cursor: pointer;
 }
 
-.assignChip.active {
-     background-color: #606C38;
+.assignNegChip {
+     background-color: rgba(254, 250, 224, .7);;
+     color: #fefae0 ;
+     font-family: 'Lora';
+     border-radius:10px;
+     box-shadow: 0px 0px 2px 2px rgb(0,0,0);
+     min-height:30px; 
+     min-width: 120px;
+     align-self: center;
+     cursor: pointer;
 }
 
-.assignChip.inactive {
-     background-color: #283618;
+.assignPosChip.active {
+     background-color: #678d3c;
+     color: #fefae0 ;
 }
- 
-.assignChip:hover:before {
-     background-color: #606C38;
+
+.assignNegChip.active {
+     background-color: rgba(231, 83, 83, 0.7);
+     color: #fefae0 ;
 }
+
 
 .navBackContainer {
  display: flex;
  justify-content: center;
  margin-top: 15px;
+ cursor: pointer;
 }
 
 .navBack {
@@ -45,7 +57,7 @@
      min-width: fit-content;
      background-color: white;
      padding: 10px;
-     box-shadow: 0 0 50px #ccc;
+     box-shadow: 0 0 50px #cccccc;
      align-self: center;
 }
 
@@ -75,9 +87,9 @@
 
 @media only screen 
 and (max-width: 390px) {
-   .assignChip {
-        background-color: #283618;
-        color: #fefae0 ;
+   .assignPosChip {
+        background-color: rgba(254, 250, 224, .7);;
+        color: #000000 ;
         font-family: 'Lora';
         border-radius:10px;
         box-shadow: 0px 0px 2px 2px rgb(0,0,0);
@@ -85,10 +97,22 @@ and (max-width: 390px) {
         min-width: 120px;
         align-self: center;
    }
+   .assignNegChip {
+     background-color: rgba(254, 250, 224, .7);;
+     color: #000000 ;
+     font-family: 'Lora';
+     border-radius:10px;
+     box-shadow: 0px 0px 2px 2px rgb(0,0,0);
+     min-height:30px; 
+     min-width: 120px;
+     align-self: center;
+}
+
+   
     
-   .assignChip:hover {
+   /* .assignChip:hover {
         background-color: #606C38;
-   }
+   } */
 
    .navBackContainer {
     display: flex;

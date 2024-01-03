@@ -67,7 +67,7 @@ const Setup = () => {
 
     const displayGameChips = selectedGameChips.length > 0 ? selectedGameChips.map((chip, index) =>
         <section className='chipContainer'>
-                    <p className="specificPosChip" key={index}>{chip}</p>
+                    <p className="specificChip" key={index}>{chip}</p>
                     {/* <button className='assignChip' onClick={() => setChipValue(chip)} key={chip}>Assign Chip</button> */}
                 </section>) : null
 
