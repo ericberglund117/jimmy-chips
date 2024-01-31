@@ -1,6 +1,7 @@
 .instructionsContainer {
-    font-family: 'Lora';
     margin-bottom: auto;
+    background-color: rgba(254, 250, 224, .7);
+    border-radius: 12%;
 }
 
 .homepageButtons {
