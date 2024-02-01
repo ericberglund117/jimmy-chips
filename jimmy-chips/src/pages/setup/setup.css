@@ -87,6 +87,15 @@ p {
     box-shadow: 0 0 50px #ccc;
 }
 
+.selectedChips {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.chipContainer {
+    
+}
+
 @media only screen 
 and (max-width: 390px) {
     .submit {
