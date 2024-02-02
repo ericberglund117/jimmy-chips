@@ -27,29 +27,6 @@ const ChipsAssignment = () => {
         'Three Putt', 
         'Front Tees'
     ]
-    const negChips = [
-        'Out of Bounds',
-        'Water',
-        'Tree',
-        'Sand',
-        'Gravedigger',
-        'Beer Chip',
-        'Snowman',
-        'Lost Ball',
-        'Club Toss',
-        'Three Putt', 
-        'Front Tees'
-    ]
-    const posChips = [
-        'Par',
-        'Sandy Par',
-        'Birdie',
-        'One Putt',
-        'Eagle',
-        'Chip In',
-        'Longest Drive', 
-        'Closest To The Pin'
-    ]
     const [currentPlayers, setCurrentPlayers] = useState([])
     const [currentHoleCount, setCurrentHoleCount] = useState(0)
     const [selectedGameChips, setSelectedGameChips] = useState([])
@@ -119,7 +96,7 @@ const ChipsAssignment = () => {
     }
 
   return (
-    <div className="assignChipsContainer">
+    <div className="assignIndChipsContainer">
         <section className='navBackContainer'>
             <button className='navBack' onClick={navigateBack}>Back</button>
         </section>
