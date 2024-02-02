@@ -5,8 +5,7 @@
 }
 
 .holePlayerInformation {
-    border: 2px solid;
-    border-color: #283618;
+    background: rgba(254, 250, 224, .7);
     min-width: fit-content;
     display: flex;
     flex-direction: row;
@@ -14,6 +13,7 @@
     flex-wrap: wrap;
     margin: 3px;
     padding: 13px;
+    border-radius: 12%;
 }
 
 .nineHole {

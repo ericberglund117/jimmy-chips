@@ -1,9 +1,8 @@
 .scoreCardContainer {
-    border: 3px solid;
     display: flex;
     flex-direction: column;
-    border-color: #283618;
-    background-color: #DDA15E;
+    background-color: rgba(254, 250, 224, .7);
+    border-radius: 10%;
     margin-bottom: 15px;
     width: 150px;
   }
@@ -64,9 +63,10 @@
 
   .scoreContainer {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       flex-wrap: wrap;
       justify-content: space-around;
+      align-items: center;
   }
 
   .nextHoleButton {
@@ -94,11 +94,10 @@
 @media only screen 
 and (max-width: 390px) {
     .scoreCardContainer {
-      border: 3px solid;
       display: flex;
       flex-direction: column;
       border-color: #283618;
-      background-color: #DDA15E;
+      background-color: rgba(254, 250, 224, .7);
       margin-bottom: 15px;
       width: fit-content;
     }
@@ -158,7 +157,7 @@ and (max-width: 390px) {
 
     .scoreContainer {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
         justify-content: space-around;
     }
