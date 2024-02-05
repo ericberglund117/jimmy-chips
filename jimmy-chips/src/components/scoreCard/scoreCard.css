@@ -69,7 +69,7 @@
       align-items: center;
   }
 
-  .nextHoleButton {
+  .nextHoleButton, .previousHoleButton {
     background-color: #283618;
         color: #fefae0 ;
         font-family: 'Lora';

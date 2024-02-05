@@ -61,6 +61,10 @@ const ScoreCard = (props) => {
         console.log(check)
     }
 
+    const changeHoleCount = () => {
+
+    }
+
     const increaseHoleCount = () => {
         // setCount(count += 1)
         const updatedHolePlayers = currentPlayers.map(player => {
@@ -252,6 +256,10 @@ const ScoreCard = (props) => {
     return (
     <div className="mainContainer">
         <h2>Scorecard</h2>
+        <div className='holeMovementContainer'>
+            <button className='previousHoleButton' onClick={decreaseHoleCount} disabled={negativeHoles} >Previous Hole</button>
+            <button className='nextHoleButton' onClick={increaseHoleCount} disabled={completedHoles} >Next Hole</button>
+        </div>
         <div className='scoreContainer'>
             {/* {determineScorecard()} */}
             {currentPlayers.map((player, index) => {
@@ -289,10 +297,6 @@ const ScoreCard = (props) => {
                     </div> 
                     )  
             })}
-        </div>
-        <div className='holeMovementContainer'>
-            <button className='nextHoleButton' onClick={decreaseHoleCount} disabled={negativeHoles} >Previous Hole</button>
-            <button className='nextHoleButton' onClick={increaseHoleCount} disabled={completedHoles} >Next Hole</button>
         </div>
     </div>
   );
