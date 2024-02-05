@@ -1,4 +1,4 @@
-.assignPosChip {
+.assignPosChip, .assignNegChip, .assignChip {
      background-color: rgba(254, 250, 224, .7);;
      color: #fefae0 ;
      font-family: 'Lora';
@@ -10,17 +10,6 @@
      cursor: pointer;
 }
 
-.assignNegChip {
-     background-color: rgba(254, 250, 224, .7);;
-     color: #fefae0 ;
-     font-family: 'Lora';
-     border-radius:10px;
-     box-shadow: 0px 0px 2px 2px rgb(0,0,0);
-     min-height:30px; 
-     min-width: 120px;
-     align-self: center;
-     cursor: pointer;
-}
 
 .assignPosChip.active {
      background-color: #678d3c;
@@ -50,7 +39,7 @@
      min-width: 120px;
 }
 
-.specificPosChip {
+.specificPosChip, .specificNegChip, .specificChip {
      border: solid;
      border-radius: 50%;
      width: 50px;
@@ -61,16 +50,6 @@
      align-self: center;
 }
 
-.specificNegChip {
-  border: solid;
-  border-radius: 50%;
-  width: 50px;
-  min-width: fit-content;
-  background-color: white;
-  padding: 10px;
-  box-shadow: 0 0 50px #ccc;
-  align-self: center;
-}
 
 .allChipContainer {
      display: grid;

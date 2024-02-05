@@ -43,7 +43,6 @@ const ScoreCard = (props) => {
         console.log(currentPlayers)
         
     const navigateToChips = (e) => {
-        // e.preventDefault()
         if (eighteenHolesCheck) {
             setPlayersToEighteen()
         }
@@ -62,7 +61,6 @@ const ScoreCard = (props) => {
     }
 
     const changeHoleCount = (changeBoolean) => {
-        console.log(changeBoolean)
         const updatedHolePlayers = currentPlayers.map(player => {
             changeBoolean ?
             player.holeCount += 1 :

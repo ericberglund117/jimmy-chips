@@ -28,7 +28,6 @@ const ChipsAssignment = () => {
         'Front Tees'
     ]
     const [currentPlayers, setCurrentPlayers] = useState([])
-    const [currentHoleCount, setCurrentHoleCount] = useState(0)
     const [selectedGameChips, setSelectedGameChips] = useState([])
     let pathCheck 
     const playerNameForChips = pathname.split("/")
@@ -88,7 +87,7 @@ const ChipsAssignment = () => {
         return updatedChipsArr.map((chip, index) => {
             return (
                 <section className='chipContainer'>
-                    <p className="specificPosChip" key={index}>{chip}</p>
+                    <p className="specificChip" key={index}>{chip}</p>
                     <button className='assignChip' onClick={() => setChipValue(chip)} key={chip}>Assign Chip</button>
                 </section>
             )
