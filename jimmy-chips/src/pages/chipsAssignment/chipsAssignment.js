@@ -1,32 +1,12 @@
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useLocalStorage, getStorageValue} from '../../useLocalStorage';
+import { flatten, allChips, negChips, posChips } from '../../utils';
 import './chipsAssignment.css';
 
 const ChipsAssignment = () => { 
     const { pathname } = useLocation()
     const navigate = useNavigate()
-    const allChips = [
-        'Par',
-        'Sandy Par',
-        'Birdie',
-        'One Putt',
-        'Eagle',
-        'Chip In',
-        'Longest Drive', 
-        'Closest To The Pin',
-        'Out of Bounds',
-        'Water',
-        'Tree',
-        'Sand',
-        'Gravedigger',
-        'Beer Chip',
-        'Snowman',
-        'Lost Ball',
-        'Club Toss',
-        'Three Putt', 
-        'Front Tees'
-    ]
     const [currentPlayers, setCurrentPlayers] = useState([])
     const [selectedGameChips, setSelectedGameChips] = useState([])
     let pathCheck 
@@ -63,13 +43,6 @@ const ChipsAssignment = () => {
         console.log(updatedPlayers)
         localStorage.setItem("allPlayers", JSON.stringify(updatedPlayers))
     }
-
-    function flatten(arr) {
-        return arr.reduce(function (flat, toFlatten) {
-          return flat.concat(Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten);
-        }, []);
-      } 
-
 
     const navigateBack = () => {
         let result = currentPlayers.map(player => {
