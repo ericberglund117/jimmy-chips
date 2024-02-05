@@ -61,30 +61,38 @@ const ScoreCard = (props) => {
         console.log(check)
     }
 
-    const changeHoleCount = () => {
-
-    }
-
-    const increaseHoleCount = () => {
-        // setCount(count += 1)
+    const changeHoleCount = (changeBoolean) => {
+        console.log(changeBoolean)
         const updatedHolePlayers = currentPlayers.map(player => {
-            player.holeCount += 1
+            changeBoolean ?
+            player.holeCount += 1 :
+            player.holeCount -= 1;
             return player
         })
         console.log(updatedHolePlayers)
         setCurrentPlayers(updatedHolePlayers)
     }
 
+    // const increaseHoleCount = () => {
+    //     // setCount(count += 1)
+    //     const updatedHolePlayers = currentPlayers.map(player => {
+    //         player.holeCount += 1
+    //         return player
+    //     })
+    //     console.log(updatedHolePlayers)
+    //     setCurrentPlayers(updatedHolePlayers)
+    // }
 
-    const decreaseHoleCount = () => {
-        // setCount(count += 1)
-        const updatedHolePlayers = currentPlayers.map(player => {
-            player.holeCount -= 1
-            return player
-        })
-        console.log(updatedHolePlayers)
-        setCurrentPlayers(updatedHolePlayers)
-    }
+
+    // const decreaseHoleCount = () => {
+    //     // setCount(count += 1)
+    //     const updatedHolePlayers = currentPlayers.map(player => {
+    //         player.holeCount -= 1
+    //         return player
+    //     })
+    //     console.log(updatedHolePlayers)
+    //     setCurrentPlayers(updatedHolePlayers)
+    // }
 // figure out way to display current score after navigating through chips and back to score card. Currently score input is blank after chip assignment
     // const updateScore = (e, player, currentHole) => {
     //     e.preventDefault()
@@ -257,8 +265,8 @@ const ScoreCard = (props) => {
     <div className="mainContainer">
         <h2>Scorecard</h2>
         <div className='holeMovementContainer'>
-            <button className='previousHoleButton' onClick={decreaseHoleCount} disabled={negativeHoles} >Previous Hole</button>
-            <button className='nextHoleButton' onClick={increaseHoleCount} disabled={completedHoles} >Next Hole</button>
+            <button className='previousHoleButton' onClick={() => changeHoleCount(false)} disabled={negativeHoles} >Previous Hole</button>
+            <button className='nextHoleButton' onClick={() => changeHoleCount(true)} disabled={completedHoles} >Next Hole</button>
         </div>
         <div className='scoreContainer'>
             {/* {determineScorecard()} */}
