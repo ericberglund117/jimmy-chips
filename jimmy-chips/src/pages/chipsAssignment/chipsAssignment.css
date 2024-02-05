@@ -1,9 +1,8 @@
 .assignPosChip, .assignNegChip, .assignChip {
      background-color: rgba(254, 250, 224, .7);;
-     color: #fefae0 ;
+     color: #000000 ;
      font-family: 'Lora';
      border-radius:10px;
-     box-shadow: 0px 0px 2px 2px rgb(0,0,0);
      min-height:30px; 
      min-width: 120px;
      align-self: center;
@@ -46,7 +45,6 @@
      min-width: fit-content;
      background-color: white;
      padding: 10px;
-     box-shadow: 0 0 50px #cccccc;
      align-self: center;
 }
 
@@ -66,74 +64,13 @@
 
 @media only screen 
 and (max-width: 390px) {
-   .assignPosChip {
+   .assignPosChip, .assignNegChip {
         background-color: rgba(254, 250, 224, .7);;
         color: #000000 ;
         font-family: 'Lora';
         border-radius:10px;
-        box-shadow: 0px 0px 2px 2px rgb(0,0,0);
         min-height:30px; 
         min-width: 120px;
         align-self: center;
-   }
-   .assignNegChip {
-     background-color: rgba(254, 250, 224, .7);;
-     color: #000000 ;
-     font-family: 'Lora';
-     border-radius:10px;
-     box-shadow: 0px 0px 2px 2px rgb(0,0,0);
-     min-height:30px; 
-     min-width: 120px;
-     align-self: center;
-}
-
-   
-    
-   /* .assignChip:hover {
-        background-color: #606C38;
-   } */
-
-   .navBackContainer {
-    display: flex;
-    justify-content: center;
-    margin-top: 15px;
-   }
-
-   .navBack {
-        background-color: #283618;
-        color: #fefae0 ;
-        font-family: 'Lora';
-        border-radius:10px;
-        box-shadow: 0px 0px 2px 2px rgb(0,0,0);
-        min-height:30px; 
-        min-width: 120px;
-   }
-   
-   .specificPosChip {
-        border: solid;
-        border-radius: 50%;
-        width: 50px;
-        min-width: fit-content;
-        background-color: white;
-        padding: 10px;
-        box-shadow: 0 0 50px #ccc;
-        align-self: center;
-   }
-
-   .specificNegChip {
-     border: solid;
-     border-radius: 50%;
-     width: 50px;
-     min-width: fit-content;
-     background-color: white;
-     padding: 10px;
-     box-shadow: 0 0 50px #ccc;
-     align-self: center;
-}
-
-   .chipContainer {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 15px;
    }
 }

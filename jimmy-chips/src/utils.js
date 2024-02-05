@@ -44,11 +44,15 @@ export const posChips = [
     'Closest To The Pin'
 ]
 
-
-
-
 export const flatten = (arr) => {
     return arr.reduce(function (flat, toFlatten) {
         return flat.concat(Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten);
       }, []);
+}
+
+export const activateChipColor = (e) => {
+    console.log('holy shit')
+    let status = e.target.classList.contains('active')
+    e.target.classList.add(status ? 'inactive' : 'active')
+    e.target.classList.remove(status ? 'active' : 'inactive')
 }

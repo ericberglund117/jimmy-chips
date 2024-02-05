@@ -1,7 +1,7 @@
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useLocalStorage, getStorageValue} from '../../useLocalStorage';
-import { flatten, allChips, negChips, posChips } from '../../utils';
+import { flatten, allChips, negChips, posChips, activateChipColor } from '../../utils';
 import './chipSelection.css';
 
 const ChipSelection = () => { 
@@ -16,24 +16,16 @@ const ChipSelection = () => {
 
 
     const selectChipValue = (chosenChip, e) => {
-        // let target = e.target;
-        let status = e.target.classList.contains('active')
-        e.target.classList.add(status ? 'inactive' : 'active')
-        e.target.classList.remove(status ? 'active' : 'inactive')
+       activateChipColor(e)
         const chosenChips = [...selectedChips]
        const check = allChips.filter(chip => chip === chosenChip)
        if (chosenChips.length === 0) {
         chosenChips.push(check)
         setSelectedChips(chosenChips)
-        setChipColor(e)
        } else {
            const updatedSelectedChips = flatten([...selectedChips, check])
            setSelectedChips(updatedSelectedChips)
        }
-    }
-
-    const setChipColor = (e) => {
-        
     }
 
     const updateSelectedChips = () => {

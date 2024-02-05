@@ -1,7 +1,7 @@
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useLocalStorage, getStorageValue} from '../../useLocalStorage';
-import { flatten, allChips, negChips, posChips } from '../../utils';
+import { flatten, allChips, activateChipColor } from '../../utils';
 import './chipsAssignment.css';
 
 const ChipsAssignment = () => { 
@@ -22,7 +22,8 @@ const ChipsAssignment = () => {
     }, [])
 
 
-    const setChipValue = (selectedChip) => {
+    const setChipValue = (selectedChip, e) => {
+        activateChipColor(e)
        const check = allChips.filter(chip => chip === selectedChip)
        const correctPlayer = currentPlayers.find(player => player.name === playerNameForChips[2])
        if (correctPlayer.chips.length === 0) {
@@ -61,7 +62,7 @@ const ChipsAssignment = () => {
             return (
                 <section className='chipContainer'>
                     <p className="specificChip" key={index}>{chip}</p>
-                    <button className='assignChip' onClick={() => setChipValue(chip)} key={chip}>Assign Chip</button>
+                    <button className='assignChip' onClick={(e) => setChipValue(chip, e)} key={chip}>Assign Chip</button>
                 </section>
             )
         })
