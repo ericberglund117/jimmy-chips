@@ -21,7 +21,8 @@
 }
 
 .assignChip.active {
-     background-color: rgba(red, green, blue, alpha);
+     background-color: #000000;
+     color: #ffffff;
 }
 
 
