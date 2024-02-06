@@ -89,11 +89,17 @@ p {
 
 .selectedChips {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
 }
 
-.chipContainer {
-    
+.specificChipSetup {
+    border: solid;
+    border-radius: 50%;
+    min-width: fit-content;
+    background-color: white;
+    padding: 10px;
+    align-self: center;
 }
 
 @media only screen 
