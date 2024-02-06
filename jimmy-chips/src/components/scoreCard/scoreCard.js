@@ -18,13 +18,12 @@ const ScoreCard = (props) => {
     // const [threeScoreInput, setThreeScoreInput] = useState('')
     // const [fourScoreInput, setFourScoreInput] = useState('')
     const [currentPlayers, setCurrentPlayers] = useState([])
+    const [completedHoles, setCompletedHoles] = useState(false)
+    const [negativeHoles, setNegativeHoles] = useState(true)
     const navigate = useNavigate()
     const { pathname } = useLocation()
     const holesPath = pathname.split("/")
     let holesCount = holesPath[1].includes('eighteen') ? eighteenHolesCount : nineHolesCount
-    let completedHoles = false
-    let negativeHoles = false
-    const formRef = useRef();
     // useEffect(() => {
     //  if(holesCount.length > 10) {
     //     const [...storedPlayers] = getStorageValue('allPlayers')
@@ -43,7 +42,6 @@ const ScoreCard = (props) => {
         console.log(currentPlayers)
         
     const navigateToChips = (e) => {
-        // e.preventDefault()
         if (eighteenHolesCheck) {
             setPlayersToEighteen()
         }
@@ -61,26 +59,48 @@ const ScoreCard = (props) => {
         console.log(check)
     }
 
-    const increaseHoleCount = () => {
-        // setCount(count += 1)
+    const changeHoleCount = (changeBoolean) => {
         const updatedHolePlayers = currentPlayers.map(player => {
-            player.holeCount += 1
+            changeBoolean ?
+            player.holeCount += 1 :
+            player.holeCount -= 1;
+            let currentHole = holesCount[player.holeCount - 1]
+            disablebutton(currentHole)
             return player
         })
         console.log(updatedHolePlayers)
         setCurrentPlayers(updatedHolePlayers)
     }
-
-
-    const decreaseHoleCount = () => {
-        // setCount(count += 1)
-        const updatedHolePlayers = currentPlayers.map(player => {
-            player.holeCount -= 1
-            return player
-        })
-        console.log(updatedHolePlayers)
-        setCurrentPlayers(updatedHolePlayers)
+    
+    const disablebutton = (currentHole) => {
+        console.log(currentHole)
+       currentHole === holesCount.length ? setCompletedHoles(true) : setCompletedHoles(false);
+       if (currentHole !== 1) {
+        setNegativeHoles(false)
+       } else {
+        setNegativeHoles(true)
+       } 
     }
+    // const increaseHoleCount = () => {
+    //     // setCount(count += 1)
+    //     const updatedHolePlayers = currentPlayers.map(player => {
+    //         player.holeCount += 1
+    //         return player
+    //     })
+    //     console.log(updatedHolePlayers)
+    //     setCurrentPlayers(updatedHolePlayers)
+    // }
+
+
+    // const decreaseHoleCount = () => {
+    //     // setCount(count += 1)
+    //     const updatedHolePlayers = currentPlayers.map(player => {
+    //         player.holeCount -= 1
+    //         return player
+    //     })
+    //     console.log(updatedHolePlayers)
+    //     setCurrentPlayers(updatedHolePlayers)
+    // }
 // figure out way to display current score after navigating through chips and back to score card. Currently score input is blank after chip assignment
     // const updateScore = (e, player, currentHole) => {
     //     e.preventDefault()
@@ -252,12 +272,13 @@ const ScoreCard = (props) => {
     return (
     <div className="mainContainer">
         <h2>Scorecard</h2>
+        <div className='holeMovementContainer'>
+            <button className='previousHoleButton' onClick={() => changeHoleCount(false)} disabled={negativeHoles} >Previous Hole</button>
+            <button className='nextHoleButton' onClick={() => changeHoleCount(true)} disabled={completedHoles} >Next Hole</button>
+        </div>
         <div className='scoreContainer'>
             {/* {determineScorecard()} */}
             {currentPlayers.map((player, index) => {
-                let currentHole = holesCount[player.holeCount - 1]
-                if (currentHole === holesCount.length) completedHoles = true
-                if (currentHole === 1) negativeHoles = true
                     return(
                     <div className='scoreCardContainer'>
                         <h3 className='playerName' key={player.name}>{player.name}</h3>
@@ -289,10 +310,6 @@ const ScoreCard = (props) => {
                     </div> 
                     )  
             })}
-        </div>
-        <div className='holeMovementContainer'>
-            <button className='nextHoleButton' onClick={decreaseHoleCount} disabled={negativeHoles} >Previous Hole</button>
-            <button className='nextHoleButton' onClick={increaseHoleCount} disabled={completedHoles} >Next Hole</button>
         </div>
     </div>
   );

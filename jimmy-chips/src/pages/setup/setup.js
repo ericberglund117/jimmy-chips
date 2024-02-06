@@ -66,8 +66,8 @@ const Setup = () => {
         </div>) : null
 
     const displayGameChips = selectedGameChips.length > 0 ? selectedGameChips.map((chip, index) =>
-        <section className='chipContainer'>
-                    <p className="specificPosChip" key={index}>{chip}</p>
+        <section className='chipContainerSetup'>
+                    <p className="specificChipSetup" key={index}>{chip}</p>
                     {/* <button className='assignChip' onClick={() => setChipValue(chip)} key={chip}>Assign Chip</button> */}
                 </section>) : null
 
@@ -85,28 +85,32 @@ const Setup = () => {
 
   return (
     <div className="setup">
-        <p className='selectChipInstruct'>1. Select The Chips You Want To Play With</p>
-        <button className='chipSelectionButton' onClick={selectPlayableChips}>Select Chips</button>
-        <section className='selectedChips'>
-            {displayGameChips}
+        <section className='chipDisplay'>
+            <p className='selectChipInstruct'>1. Select The Chips You Want To Play With</p>
+            <button className='chipSelectionButton' onClick={selectPlayableChips}>Select Chips</button>
+            <section className='selectedChips'>
+                {displayGameChips}
+            </section>
         </section>
-        <p className='playersInput'>2. Add Players Here:</p>
-     <form className='playerForm'>
-        <div className='form-control'>
-            <label htmlFor='playerName'>Name: </label>
-            <input 
-                type='text'
-                id='playerName'
-                name='playerName'
-                value={value}
-                onChange={(e) => setValue(e.target.value.trim())}
-                />
+        <section className='addPlayersSection'>
+            <p className='playersInput'>2. Add Players Here:</p>
+            <form className='playerForm'>
+                <div className='form-control'>
+                    <label htmlFor='playerName'>Name: </label>
+                    <input 
+                        type='text'
+                        id='playerName'
+                        name='playerName'
+                        value={value}
+                        onChange={(e) => setValue(e.target.value.trim())}
+                        />
+                </div>
+                <button className='submit' type='submit' onClick={handleSubmit}>Submit</button>
+            </form>
+        <div className='playersContainer'>
+            {displayPlayers}
         </div>
-        <button className='submit' type='submit' onClick={handleSubmit}>Submit</button>
-     </form>
-     <div className='playersContainer'>
-        {displayPlayers}
-     </div>
+        </section>
      <div className='buttonsContainer'>
         <button className='nineHoleButton' onClick={playNine}>Play Nine Holes</button>
         <button className='eighteenHoleButton' onClick={playEighteen}>Play Eighteen Holes</button>

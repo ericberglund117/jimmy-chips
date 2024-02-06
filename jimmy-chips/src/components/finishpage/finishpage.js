@@ -2,33 +2,11 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect, useMemo } from 'react';
 import './finishpage.css';
 import { useLocalStorage, getStorageValue} from '../../useLocalStorage';
+import { negChips, posChips, flatten } from '../../utils';
 
 const FinishPage = () => {
     const [currentPlayers, setCurrentPlayers] = useState([])
     const navigate = useNavigate()
-    const negChips = [
-      'Out of Bounds',
-      'Water',
-      'Tree',
-      'Sand',
-      'Gravedigger',
-      'Beer Chip',
-      'Snowman',
-      'Lost Ball',
-      'Club Toss',
-      'Three Putt', 
-      'Front Tees'
-  ]
-  const posChips = [
-      'Par',
-      'Sandy Par',
-      'Birdie',
-      'One Putt',
-      'Eagle',
-      'Chip In',
-      'Longest Drive', 
-      'Closest To The Pin'
-  ]
     
         useEffect(() => {
             const [...currentStoredPlayers] = getStorageValue('allPlayers')
@@ -48,8 +26,8 @@ const FinishPage = () => {
           navigate('/')
         }
 
-        const calculateWinnings = () => {
-          console.log(currentPlayers)
+        const determineFinishedMessage = () => {
+          console.log("winnings", currentPlayers)
           let message = ''
            return currentPlayers.map(player => {
             if (player.chipsScore < 0)  {
@@ -77,15 +55,17 @@ const FinishPage = () => {
                     //     return acc
                     //     }, 0)
                     let endCount = 0
-                    let endChips = player.chips
+                    let endChips = flatten(player.chips)
                     if (endChips.length === 0) {
                       player.chipsScore = 0
                     } else {
                       endChips.forEach(chip => {
                         console.log(chip)
                         if(posChips.includes(chip)) {
+                          console.log('pos')
                           endCount += 1
                         } else {
+                          (console.log('neg'))
                           endCount -= 1
                         }
                       })
@@ -106,7 +86,7 @@ const FinishPage = () => {
                 })
                 }
             </div>
-            {calculateWinnings()}
+            {determineFinishedMessage()}
             <button className='endRound' onClick={endRound}>Return Home</button>
     </div>    
   );

@@ -11,10 +11,11 @@ import ChipSelection from './pages/chipSelection/chipSelection';
 function App() {
   return (
     <div className="App">
-      <div className='appContainer'>
+      <div className='appOverlay'></div>
       <section className='titleContainer'>
         <h1 className="title">Jimmy Chips</h1>
       </section>
+      <div className='appContainer'>
       <Routes>
           <Route path="/" element= { <Homepage /> } />
           <Route path="/setup" element= { <Setup /> } />

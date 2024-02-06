@@ -1,43 +1,25 @@
 .instructionsContainer {
-    font-family: 'Lora';
-    margin: 50px;
     margin-bottom: auto;
+    background-color: rgba(254, 250, 224, .7);
+    border-radius: 12%;
 }
 
 .homepageButtons {
     display: flex;
     justify-content: space-evenly;
-    margin-top: 50px;
     z-index: 1;
-    /* position: fixed; */
 }
 
-.howToPlayButton {
-    background-color: #283618;
-    color: #fefae0 ;
+.howToPlayButton, .playButton {
+    font-family: 'Lora';
+    background-color: #ffffff;
+    color: #000000 ;
     border-radius:10px;
     box-shadow: 0px 0px 2px 2px rgb(0,0,0);
     min-height:30px; 
     min-width: 120px;
     margin: 15px;
 }
-
-.playButton {
-    background-color: #283618;
-    color: #fefae0 ;
-    border-radius:10px;
-    box-shadow: 0px 0px 2px 2px rgb(0,0,0);
-    min-height:30px; 
-    min-width: 120px;
-    margin: 15px;
-}
-
-.homepage {
-    /* min-height: 70vh; */
-    display: flex;
-    flex-direction: column;
-}
-
 
 
 
@@ -46,22 +28,6 @@ and (max-width: 390px)  {
     .instructionsContainer {
         margin: 25px;
         margin-bottom: auto;
-    }
-
-    .howToPlayButton {
-        font-family: 'Lora';
-        border-radius:10px;
-        box-shadow: 0px 0px 2px 2px rgb(0,0,0);
-        min-height:30px; 
-        min-width: 120px;
-    }
-
-    .playButton {
-        font-family: 'Lora';
-        border-radius:10px;
-        box-shadow: 0px 0px 2px 2px rgb(0,0,0);
-        min-height:30px; 
-        min-width: 120px;
     }
       
 }

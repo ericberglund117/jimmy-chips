@@ -1,57 +1,13 @@
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useLocalStorage, getStorageValue} from '../../useLocalStorage';
+import { flatten, allChips, activateChipColor } from '../../utils';
 import './chipsAssignment.css';
 
 const ChipsAssignment = () => { 
     const { pathname } = useLocation()
     const navigate = useNavigate()
-    const allChips = [
-        'Par',
-        'Sandy Par',
-        'Birdie',
-        'One Putt',
-        'Eagle',
-        'Chip In',
-        'Longest Drive', 
-        'Closest To The Pin',
-        'Out of Bounds',
-        'Water',
-        'Tree',
-        'Sand',
-        'Gravedigger',
-        'Beer Chip',
-        'Snowman',
-        'Lost Ball',
-        'Club Toss',
-        'Three Putt', 
-        'Front Tees'
-    ]
-    const negChips = [
-        'Out of Bounds',
-        'Water',
-        'Tree',
-        'Sand',
-        'Gravedigger',
-        'Beer Chip',
-        'Snowman',
-        'Lost Ball',
-        'Club Toss',
-        'Three Putt', 
-        'Front Tees'
-    ]
-    const posChips = [
-        'Par',
-        'Sandy Par',
-        'Birdie',
-        'One Putt',
-        'Eagle',
-        'Chip In',
-        'Longest Drive', 
-        'Closest To The Pin'
-    ]
     const [currentPlayers, setCurrentPlayers] = useState([])
-    const [currentHoleCount, setCurrentHoleCount] = useState(0)
     const [selectedGameChips, setSelectedGameChips] = useState([])
     let pathCheck 
     const playerNameForChips = pathname.split("/")
@@ -66,7 +22,8 @@ const ChipsAssignment = () => {
     }, [])
 
 
-    const setChipValue = (selectedChip) => {
+    const setChipValue = (selectedChip, e) => {
+        activateChipColor(e)
        const check = allChips.filter(chip => chip === selectedChip)
        const correctPlayer = currentPlayers.find(player => player.name === playerNameForChips[2])
        if (correctPlayer.chips.length === 0) {
@@ -88,13 +45,6 @@ const ChipsAssignment = () => {
         localStorage.setItem("allPlayers", JSON.stringify(updatedPlayers))
     }
 
-    function flatten(arr) {
-        return arr.reduce(function (flat, toFlatten) {
-          return flat.concat(Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten);
-        }, []);
-      } 
-
-
     const navigateBack = () => {
         let result = currentPlayers.map(player => {
             player.full === true ? pathCheck = true : pathCheck = false;
@@ -111,15 +61,15 @@ const ChipsAssignment = () => {
         return updatedChipsArr.map((chip, index) => {
             return (
                 <section className='chipContainer'>
-                    <p className="specificPosChip" key={index}>{chip}</p>
-                    <button className='assignChip' onClick={() => setChipValue(chip)} key={chip}>Assign Chip</button>
+                    <p className="specificChip" key={index}>{chip}</p>
+                    <button className='assignChip' onClick={(e) => setChipValue(chip, e)} key={chip}>Assign Chip</button>
                 </section>
             )
         })
     }
 
   return (
-    <div className="assignChipsContainer">
+    <div className="assignIndChipsContainer">
         <section className='navBackContainer'>
             <button className='navBack' onClick={navigateBack}>Back</button>
         </section>

@@ -14,7 +14,7 @@ const Homepage = () => {
   return (
     <div className="homepage">
         <section className="instructionsContainer">
-            {showInstructions && <p className="instructions">{instructions}</p>}
+            {showInstructions && <p className="instructions" style={{padding: '20px'}}>{instructions}</p>}
         </section>
         <section className='homepageButtons'>
             <button className="howToPlayButton" onClick={() => setShowInstructions(!showInstructions)}>
