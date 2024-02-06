@@ -18,13 +18,12 @@ const ScoreCard = (props) => {
     // const [threeScoreInput, setThreeScoreInput] = useState('')
     // const [fourScoreInput, setFourScoreInput] = useState('')
     const [currentPlayers, setCurrentPlayers] = useState([])
+    const [completedHoles, setCompletedHoles] = useState(false)
+    const [negativeHoles, setNegativeHoles] = useState(true)
     const navigate = useNavigate()
     const { pathname } = useLocation()
     const holesPath = pathname.split("/")
     let holesCount = holesPath[1].includes('eighteen') ? eighteenHolesCount : nineHolesCount
-    let completedHoles = false
-    let negativeHoles = false
-    const formRef = useRef();
     // useEffect(() => {
     //  if(holesCount.length > 10) {
     //     const [...storedPlayers] = getStorageValue('allPlayers')
@@ -65,12 +64,23 @@ const ScoreCard = (props) => {
             changeBoolean ?
             player.holeCount += 1 :
             player.holeCount -= 1;
+            let currentHole = holesCount[player.holeCount - 1]
+            disablebutton(currentHole)
             return player
         })
         console.log(updatedHolePlayers)
         setCurrentPlayers(updatedHolePlayers)
     }
-
+    
+    const disablebutton = (currentHole) => {
+        console.log(currentHole)
+       currentHole === holesCount.length ? setCompletedHoles(true) : setCompletedHoles(false);
+       if (currentHole !== 1) {
+        setNegativeHoles(false)
+       } else {
+        setNegativeHoles(true)
+       } 
+    }
     // const increaseHoleCount = () => {
     //     // setCount(count += 1)
     //     const updatedHolePlayers = currentPlayers.map(player => {
@@ -269,9 +279,6 @@ const ScoreCard = (props) => {
         <div className='scoreContainer'>
             {/* {determineScorecard()} */}
             {currentPlayers.map((player, index) => {
-                let currentHole = holesCount[player.holeCount - 1]
-                if (currentHole === holesCount.length) completedHoles = true
-                if (currentHole === 1) negativeHoles = true
                     return(
                     <div className='scoreCardContainer'>
                         <h3 className='playerName' key={player.name}>{player.name}</h3>

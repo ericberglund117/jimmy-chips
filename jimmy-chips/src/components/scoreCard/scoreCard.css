@@ -82,6 +82,10 @@
         cursor: pointer;
   }
 
+  .nextHoleButton:disabled, .previousHoleButton:disabled {
+    text-decoration: line-through;
+  }
+
     .holeMovementContainer {
         display: flex;
         flex-direction: row;
