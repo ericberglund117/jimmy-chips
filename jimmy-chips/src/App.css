@@ -23,6 +23,31 @@
   height: fit-content;
   align-self: center;
   z-index: 10;
+  margin-top: 35px;
+}
+
+.westeeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.westeeButton {
+  background: url("./assets/westee-logo.png") no-repeat;
+  background-size: 100% 100%;
+  background-position: center;  
+  min-width: -webkit-fill-available;
+  min-height: -webkit-fill-available;
+  align-self: center;
+  border: none;
+}
+
+.westeeTag span {
+  display: none;
+}
+
+.tees {
+  margin: 0;
 }
 
 body {
@@ -30,28 +55,29 @@ body {
 }
 
 .titleContainer{
-  font-size: 35px;
-  font-weight: 500;
-  /* text-shadow: 0px 0px 5px #606c38, 0px 0px 10px #606c38, 0px 0px 10px #606c38, */
-    /* 0px 0px 20px #606c38; */
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
   position: sticky;
 }
 
 h1 {
   font-family: 'Lora';
+  font-size: 30px;
   text-decoration: underline;
-  color: white;
+  color: #E1DCD1;
 }
 
 h2 {
   font-family: 'Lora';
   text-decoration: underline;
-  color: white;
+  color: #E1DCD1;
 }
 
 h3 {
   font-family: 'Lora';
-  text-decoration: underline;
+  color: #E1DCD1;
 }
 
 .title {
@@ -60,19 +86,20 @@ h3 {
 
 @media only screen 
 and (max-width: 390px)  {
-  .titleContainer {
+  /* .titleContainer {
     font-size: 35px;
-  }
+  } */
 
   .appContainer {
     padding-left: 15px;
     padding-right:15px;
+    margin-top: 35px;
   }
 }
 
 @media only screen 
 and (max-width: 320px)  {
-  .titleContainer {
+  /* .titleContainer {
     font-size: 30px;
-  }
+  } */
 }
