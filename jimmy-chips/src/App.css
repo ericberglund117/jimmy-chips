@@ -56,7 +56,7 @@ body {
 
 .titleContainer{
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding-left: 20px;
   padding-right: 20px;
   position: sticky;
