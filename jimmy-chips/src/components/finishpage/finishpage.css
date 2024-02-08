@@ -1,6 +1,6 @@
 .endRound {
     align-self: center;
-    background-color: #ffffff;
+    background-color: #E1DCD1;
     color: #000000 ;
     font-family: 'Lora';
     border-radius:10px;
@@ -41,7 +41,7 @@
 and (max-width: 390px) {
     .endRound {
         align-self: center;
-        background-color: #ffffff;
+        background-color: #E1DCD1;
         color: #000000 ;
         font-family: 'Lora';
         border-radius:10px;

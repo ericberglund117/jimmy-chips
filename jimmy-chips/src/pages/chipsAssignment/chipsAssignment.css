@@ -22,7 +22,7 @@
 
 .assignChip.active {
      background-color: #000000;
-     color: #ffffff;
+     color: #E1DCD1;
 }
 
 
@@ -34,7 +34,7 @@
 }
 
 .navBack {
-     background-color: #ffffff;
+     background-color: #E1DCD1;
      color: #000000;
      font-family: 'Lora';
      border-radius:10px;
