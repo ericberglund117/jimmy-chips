@@ -9,11 +9,20 @@ import ChipsAssignment from './pages/chipsAssignment/chipsAssignment';
 import ChipSelection from './pages/chipSelection/chipSelection';
 
 function App() {
+
+  const openInNewTab = (url) => {
+    window.open(url, "_blank", "noreferrer")
+  }
   return (
     <div className="App">
       <div className='appOverlay'></div>
       <section className='titleContainer'>
         <h1 className="title">Jimmy Chips</h1>
+        <section className='westeeContainer'>
+          <h3 className='tees'>Need Tees?</h3>
+          <button className="westeeButton" role="link" onClick={() => openInNewTab("https://www.westeegolf.co/")} >
+          </button>
+        </section>
       </section>
       <div className='appContainer'>
       <Routes>
