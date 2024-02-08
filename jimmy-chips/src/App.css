@@ -56,8 +56,7 @@ body {
 
 .titleContainer{
   display: flex;
-  /* justify-content: space-between; */
-  justify-content: center;
+  justify-content: space-between;
   padding-left: 20px;
   padding-right: 20px;
   position: sticky;
@@ -95,6 +94,11 @@ and (max-width: 390px)  {
     padding-left: 15px;
     padding-right:15px;
     margin-top: 35px;
+  }
+
+  .westeeButton {
+    min-width: 50px;
+    min-height: 50px;
   }
 }
 

@@ -18,11 +18,11 @@ function App() {
       <div className='appOverlay'></div>
       <section className='titleContainer'>
         <h1 className="title">Jimmy Chips</h1>
-        {/* <section className='westeeContainer'>
+        <section className='westeeContainer'>
           <h3 className='tees'>Need Tees?</h3>
           <button className="westeeButton" role="link" onClick={() => openInNewTab("https://www.westeegolf.co/")} >
           </button>
-        </section> */}
+        </section>
       </section>
       <div className='appContainer'>
       <Routes>
