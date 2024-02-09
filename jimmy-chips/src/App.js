@@ -26,9 +26,8 @@ function App() {
             <img className='westeeButtonLogo' src={westeeLogo} alt='westee_logo' />
           </button>
         </section>
-        <section className='titleContainer'>
-          <h1 className="title">Jimmy Chips</h1>
-        </section>
+      <section className='titleContainer'>
+        <h1 className="title">Jimmy Chips</h1>
       <div className='appContainer'>
       <Routes>
           <Route path="/" element= { <Homepage /> } />
