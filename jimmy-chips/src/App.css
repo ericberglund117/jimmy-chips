@@ -28,18 +28,25 @@
 
 .westeeContainer {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .westeeButton {
-  background: url("./assets/westee-logo.png") no-repeat;
-  background-size: 100% 100%;
-  background-position: center;  
-  min-width: -webkit-fill-available;
-  min-height: -webkit-fill-available;
   align-self: center;
   border: none;
+  background: transparent;
+  width: 80px;
+  height: auto;
+}
+
+.westeeButtonLogo {
+  max-width: 100%;
+  /* max-height: auto; */
 }
 
 .westeeTag span {
@@ -47,7 +54,36 @@
 }
 
 .tees {
+  font-size: small;
   margin: 0;
+  margin-top: -5px;
+}
+
+.westee_tee_wood{
+  background: url("./assets/westee_tee_wood.png") no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  margin-top: -3px;
+}
+
+.westee_tee_blue {
+  background: url("./assets/westee_tee_blue.png") no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.westee_tee_black {
+  background: url("./assets/westee_tee_black.png") no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  margin-top: -10px;
+}
+
+.westee_tee_black, .westee_tee_blue, .westee_tee_wood {
+  min-width: 75px;
+  min-height: 60px;
+  align-self: center;
+  border: none;
 }
 
 body {
@@ -60,6 +96,8 @@ body {
   padding-left: 20px;
   padding-right: 20px;
   position: sticky;
+  margin-top: -15px;
+  margin-bottom: -35px;
 }
 
 h1 {
@@ -97,8 +135,8 @@ and (max-width: 390px)  {
   }
 
   .westeeButton {
-    min-width: 50px;
-    min-height: 50px;
+    max-width: 50px;
+    max-height: 50px;
   }
 }
 

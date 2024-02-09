@@ -7,6 +7,7 @@ import NineHole from './pages/nineHole/nineHole';
 import EighteenHole from './pages/eighteenHole/eighteenHole';
 import ChipsAssignment from './pages/chipsAssignment/chipsAssignment';
 import ChipSelection from './pages/chipSelection/chipSelection';
+import westeeLogo from './assets/westee-logo.png';
 
 function App() {
 
@@ -16,14 +17,17 @@ function App() {
   return (
     <div className="App">
       <div className='appOverlay'></div>
+        <section className='westeeContainer'>
+          <h3 className='tees'>Need Tees?</h3>
+          <div className='westee_tee_blue'></div>
+          <div className='westee_tee_black'></div>
+          <div className='westee_tee_wood'></div>
+          <button className="westeeButton" role="link" onClick={() => openInNewTab("https://www.westeegolf.co/")} >
+            <img className='westeeButtonLogo' src={westeeLogo} alt='westee_logo' />
+          </button>
+        </section>
       <section className='titleContainer'>
         <h1 className="title">Jimmy Chips</h1>
-        {/* <section className='westeeContainer'>
-          <h3 className='tees'>Need Tees?</h3>
-          <button className="westeeButton" role="link" onClick={() => openInNewTab("https://www.westeegolf.co/")} >
-          </button>
-        </section> */}
-      </section>
       <div className='appContainer'>
       <Routes>
           <Route path="/" element= { <Homepage /> } />
