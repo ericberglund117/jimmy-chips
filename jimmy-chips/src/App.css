@@ -46,7 +46,6 @@
 
 .westeeButtonLogo {
   max-width: 100%;
-  /* max-height: auto; */
 }
 
 .westeeTag span {
@@ -135,8 +134,7 @@ and (max-width: 390px)  {
   }
 
   .westeeButton {
-    max-width: 50px;
-    max-height: 50px;
+    max-width: 73px;
   }
 }
 
