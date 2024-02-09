@@ -28,6 +28,7 @@ function App() {
         </section>
       <section className='titleContainer'>
         <h1 className="title">Jimmy Chips</h1>
+      </section>
       <div className='appContainer'>
       <Routes>
           <Route path="/" element= { <Homepage /> } />
