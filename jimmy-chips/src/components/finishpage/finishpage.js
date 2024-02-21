@@ -1,8 +1,8 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect, useMemo } from 'react';
 import './finishpage.css';
-import { useLocalStorage, getStorageValue} from '../../useLocalStorage';
-import { negChips, posChips, flatten } from '../../utils';
+import { useLocalStorage, getStorageValue} from '../../useLocalStorage.js';
+import { negChips, posChips, flatten } from '../../utils.js';
 
 const FinishPage = () => {
     const [currentPlayers, setCurrentPlayers] = useState([])

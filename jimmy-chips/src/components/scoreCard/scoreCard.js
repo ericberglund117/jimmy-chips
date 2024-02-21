@@ -1,6 +1,6 @@
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
-import { useLocalStorage, getStorageValue} from '../../useLocalStorage';
+import { useLocalStorage, getStorageValue} from '../../useLocalStorage.js';
 import './scoreCard.css';
 
 const ScoreCard = (props) => {

@@ -1,8 +1,8 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect, useMemo } from 'react';
 import './nineHole.css';
-import ScoreCard from '../../components/scoreCard/scoreCard';
-import { useLocalStorage, getStorageValue} from '../../useLocalStorage';
+import ScoreCard from '../../components/scoreCard/scoreCard.js';
+import { useLocalStorage, getStorageValue} from '../../useLocalStorage.js';
 
 const NineHole = () => {
     const [currentPlayers, setCurrentPlayers] = useState([])

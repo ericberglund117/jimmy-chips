@@ -1,10 +1,9 @@
 
 import './eighteenHole.css';
-
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import ScoreCard from '../../components/scoreCard/scoreCard';
-import { useLocalStorage, getStorageValue} from '../../useLocalStorage';
+import ScoreCard from '../../components/scoreCard/scoreCard.js';
+import { useLocalStorage, getStorageValue} from '../../useLocalStorage.js';
 
 const EighteenHole = () => {
     const [currentPlayers, setCurrentPlayers] = useState([])

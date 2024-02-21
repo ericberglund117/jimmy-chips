@@ -1,7 +1,7 @@
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { useLocalStorage, getStorageValue} from '../../useLocalStorage';
-import { flatten, allChips, negChips, posChips, activateChipColor } from '../../utils';
+import { useLocalStorage, getStorageValue} from '../../useLocalStorage.js';
+import { flatten, allChips, negChips, posChips, activateChipColor } from '../../utils.js';
 import './chipSelection.css';
 
 const ChipSelection = () => { 
